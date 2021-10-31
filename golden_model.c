@@ -1,5 +1,12 @@
+/*
+TODO:
+1. Generate output file
+*/
+
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef enum opcode {
     MOV  = 0x0,
@@ -33,8 +40,8 @@ void process_instr(char *line, int16_t *reg_file) {
     if (src2_reg & 0x8) src2_imm = src2_reg | 0xFFF0; // sign-extend src2_imm
     else src2_imm = src2_reg;
     
-    printf("instr:%hx, opcode:%hx, dest_reg:%hx, src1_reg:%hx, src2_reg:%hx, src2_imm:%hx\n", 
-    instr, opcode, dest_reg, src1_reg, src2_reg, src2_imm);
+    /*printf("instr:%hx, opcode:%hx, dest_reg:%hx, src1_reg:%hx, src2_reg:%hx, src2_imm:%hx\n", 
+    instr, opcode, dest_reg, src1_reg, src2_reg, src2_imm);*/
 
     /* Perform computation */
     switch(opcode) {
@@ -136,6 +143,9 @@ int main(int argc, char *argv[]) {
         exit(-1);
     }
 
+    struct timespec start_time, end_time;
+    clock_gettime(CLOCK_REALTIME, &start_time); // start time for benchmarking
+
     /* Open test case file */
     FILE *fp = fopen(argv[1], "r");
     if (fp == NULL) {
@@ -151,16 +161,21 @@ int main(int argc, char *argv[]) {
     size_t line_size;
     while ((read = getline(&line, &line_size, fp)) != -1) { // stop at end-of-file
         if (read != 5) { // 4 bytes for instr + 1 byte for new line char
-            fprintf(stderr, "Error: Encountered %zu-byte line when each line should be 3 bytes\n", read);
+            fprintf(stderr, "Error: Encountered %zu-byte line when each line should be 5 bytes\n", read);
             exit(-1);
         }
         process_instr(line, reg_file);
     }
 
-    for (int i = 0; i < 16; i++)
-        printf("%x: %hx\n", i, reg_file[i]);
+    /*for (int i = 0; i < 16; i++)
+        printf("%x: %hx\n", i, reg_file[i]);*/
 
     free(line);
     fclose(fp);
+
+    clock_gettime(CLOCK_REALTIME, &end_time); // end time for benchmarking
+    int runtime = (end_time.tv_sec - start_time.tv_sec) * 1000000000 + (end_time.tv_nsec - start_time.tv_nsec);
+    printf("Golden model ran for %d ns\n", runtime);
+    
     return 0;
 }

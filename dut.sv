@@ -123,98 +123,105 @@ module Core
              .alu_src1(rs1_data), .alu_src2(alu_src2),
              .alu_out(rd_data));
     
-    always_ff @(posedge clock) begin
+    /*always_ff @(posedge clock) begin
         $display("\nAt %0d: %b, %h", $time, instr_valid, instr);
         for (int i = 0; i < 16; i++)
             $display("%0h: %h", i, rf.registers[i]);
-    end
+    end*/
 
 endmodule: Core
 
 
 module TB();
-	logic clock, reset_n;
-	logic instr_valid;
-	logic [15:0] instr;
+    logic clock, reset_n;
+    logic instr_valid;
+    logic [15:0] instr;
+    logic [15:0] line_binary;
 
-	Core DUT (.*);
+    Core DUT (.*);
 
-	initial begin
-		clock = 0;
-		forever #5 clock = ~clock;
-	end
+    initial begin
+        clock = 0;
+        forever #5 clock = ~clock;
+    end
 
-	initial begin
-		reset_n <= 1'b0;
-		@(posedge clock);
-		
-		reset_n <= 1'b1;  instr_valid <= 1'b1; instr <= 16'h911e;
-		@(posedge clock);
-		
-		instr <= 16'h9201;
-		@(posedge clock);
+    initial begin
+        reset_n <= 1'b0;
+        @(posedge clock);
+        
+        reset_n <= 1'b1;  instr_valid <= 1'b1; instr <= 16'h911e;
+        @(posedge clock);
 
-		instr <= 16'h0314;
-		@(posedge clock);
+        for (int i = 0; i < 19999; i++) begin
+            instr <= 16'h9201;
+            @(posedge clock);
+        end
+        
+        /*instr <= 16'h9201;
+        @(posedge clock);
 
-		instr <= 16'h1412;
-		@(posedge clock);
+        instr <= 16'h0314;
+        @(posedge clock);
 
-		instr <= 16'h2512;
-		@(posedge clock);
+        instr <= 16'h1412;
+        @(posedge clock);
 
-		instr <= 16'h3612;
-		@(posedge clock);
+        instr <= 16'h2512;
+        @(posedge clock);
 
-		instr <= 16'h4712;
-		@(posedge clock);
+        instr <= 16'h3612;
+        @(posedge clock);
 
-		instr <= 16'h5874;
-		@(posedge clock);
+        instr <= 16'h4712;
+        @(posedge clock);
 
-		instr <= 16'h6943;
-		@(posedge clock);
+        instr <= 16'h5874;
+        @(posedge clock);
 
-		instr <= 16'h7a72;
-		@(posedge clock);
+        instr <= 16'h6943;
+        @(posedge clock);
 
-		instr <= 16'h8b72;
-		@(posedge clock);
+        instr <= 16'h7a72;
+        @(posedge clock);
 
-		instr <= 16'h9c8a;
-		@(posedge clock);
+        instr <= 16'h8b72;
+        @(posedge clock);
 
-		instr <= 16'had5b;
-		@(posedge clock);
+        instr <= 16'h9c8a;
+        @(posedge clock);
 
-		instr <= 16'hbe28;
-		@(posedge clock);
+        instr <= 16'had5b;
+        @(posedge clock);
 
-		instr <= 16'hcf8f;
-		@(posedge clock);
+        instr <= 16'hbe28;
+        @(posedge clock);
 
-		instr <= 16'hd12e;
-		@(posedge clock);
+        instr <= 16'hcf8f;
+        @(posedge clock);
 
-		instr <= 16'he14f;
-		@(posedge clock);
+        instr <= 16'hd12e;
+        @(posedge clock);
 
-		instr <= 16'hf24f;
-		@(posedge clock);
+        instr <= 16'he14f;
+        @(posedge clock);
 
-		instr <= 16'h9020;
-		@(posedge clock);
+        instr <= 16'hf24f;
+        @(posedge clock);
 
-		instr <= 16'he991;
-		@(posedge clock);
+        instr <= 16'h9020;
+        @(posedge clock);
 
-		instr <= 16'hf39d;
-		@(posedge clock);
+        instr <= 16'he991;
+        @(posedge clock);
 
-		instr_valid <= 1'b0;
-		@(posedge clock);
-		@(posedge clock);
-		$finish;
-	end
+        instr <= 16'hf39d;
+        @(posedge clock);*/
+
+        instr_valid <= 1'b0;
+        @(posedge clock);
+        @(posedge clock);
+
+        $finish;
+    end
 
 endmodule
