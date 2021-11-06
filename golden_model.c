@@ -167,8 +167,9 @@ int main(int argc, char *argv[]) {
         process_instr(line, reg_file);
     }
 
-    /*for (int i = 0; i < 16; i++)
-        printf("%x: %hx\n", i, reg_file[i]);*/
+    int i;
+    for (i = 0; i < 16; i++)
+        printf("%x: %hx\n", i, reg_file[i]);
 
     free(line);
     fclose(fp);

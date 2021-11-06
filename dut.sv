@@ -133,10 +133,16 @@ endmodule: Core
 
 
 module TB();
+    // For DUT
     logic clock, reset_n;
     logic instr_valid;
     logic [15:0] instr;
-    logic [15:0] line_binary;
+
+    // For file reading
+    string test_case_file;
+    int fd;
+    int i = 0;
+    logic [15:0] file_instr;
 
     Core DUT (.*);
 
@@ -146,81 +152,43 @@ module TB();
     end
 
     initial begin
-        reset_n <= 1'b0;
-        @(posedge clock);
-        
-        reset_n <= 1'b1;  instr_valid <= 1'b1; instr <= 16'h911e;
-        @(posedge clock);
+        /* Check test case file argument is supplied */
+        if (!$value$plusargs("TEST=%s", test_case_file)) 
+            $display("Usage: ./simv +TEST=<test case file>");
 
-        for (int i = 0; i < 19999; i++) begin
-            instr <= 16'h9201;
-            @(posedge clock);
+        /* Open test case file */
+        fd = $fopen(test_case_file, "r");
+        if (!fd)
+            $fatal("Error: Failed to open file %s\n", test_case_file);
+        
+        /* Process test case file line by line */
+        while (!$feof(fd)) begin
+            $fscanf(fd, "%h\n", file_instr);
+
+            // First instruction, need to reset
+            if (i == 0) begin
+                reset_n <= 1'b0;
+                @(posedge clock);
+        
+                reset_n <= 1'b1;  instr_valid <= 1'b1; instr <= file_instr;
+                @(posedge clock);
+            end
+            
+            else begin
+                instr <= file_instr;
+                @(posedge clock);
+            end
+            
+            i++;
         end
+
+        $fclose(fd);
         
-        /*instr <= 16'h9201;
-        @(posedge clock);
-
-        instr <= 16'h0314;
-        @(posedge clock);
-
-        instr <= 16'h1412;
-        @(posedge clock);
-
-        instr <= 16'h2512;
-        @(posedge clock);
-
-        instr <= 16'h3612;
-        @(posedge clock);
-
-        instr <= 16'h4712;
-        @(posedge clock);
-
-        instr <= 16'h5874;
-        @(posedge clock);
-
-        instr <= 16'h6943;
-        @(posedge clock);
-
-        instr <= 16'h7a72;
-        @(posedge clock);
-
-        instr <= 16'h8b72;
-        @(posedge clock);
-
-        instr <= 16'h9c8a;
-        @(posedge clock);
-
-        instr <= 16'had5b;
-        @(posedge clock);
-
-        instr <= 16'hbe28;
-        @(posedge clock);
-
-        instr <= 16'hcf8f;
-        @(posedge clock);
-
-        instr <= 16'hd12e;
-        @(posedge clock);
-
-        instr <= 16'he14f;
-        @(posedge clock);
-
-        instr <= 16'hf24f;
-        @(posedge clock);
-
-        instr <= 16'h9020;
-        @(posedge clock);
-
-        instr <= 16'he991;
-        @(posedge clock);
-
-        instr <= 16'hf39d;
-        @(posedge clock);*/
-
         instr_valid <= 1'b0;
         @(posedge clock);
         @(posedge clock);
 
+        for (int i = 0; i < 16; i++) $display("%0h: %h", i, DUT.rf.registers[i]);
         $finish;
     end
 
