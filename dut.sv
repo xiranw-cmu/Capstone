@@ -122,12 +122,6 @@ module Core
     ALU alu (.opcode(opcode),
              .alu_src1(rs1_data), .alu_src2(alu_src2),
              .alu_out(rd_data));
-    
-    /*always_ff @(posedge clock) begin
-        $display("\nAt %0d: %b, %h", $time, instr_valid, instr);
-        for (int i = 0; i < 16; i++)
-            $display("%0h: %h", i, rf.registers[i]);
-    end*/
 
 endmodule: Core
 
@@ -153,11 +147,8 @@ module TB();
 
     initial begin
         /* Check test case file argument is supplied */
-        if ($value$plusargs("TEST=%s", test_case_file))
-            $display("%s\n", test_case_file);
-        else $display("Usage: ./simv +TEST=<test case file>");
-        /*if (!$value$plusargs("TEST=%s", test_case_file)) 
-            $display("Usage: ./simv +TEST=<test case file>");*/
+        if (!$value$plusargs("TEST=%s", test_case_file)) 
+            $display("Usage: ./simv +TEST=<test case file>");
 
         /* Open test case file and output file */
         test_fd = $fopen(test_case_file, "r");
@@ -199,6 +190,8 @@ module TB();
         for (int i = 0; i < 16; i++)
             $fwrite(output_fd, "%h", DUT.rf.registers[i]);
         $fwrite(output_fd, "\n");
+
+        $display("DUT simulation finished. Output in sim_output.txt");
         
         /* Clean up */
         $fclose(test_fd);

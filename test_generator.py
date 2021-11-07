@@ -17,16 +17,16 @@ print("1. Test case file name")
 file_name = input("\nEnter the name of the output test case file (default is test_case.txt): ")
 
 if (file_name == ""):
-	file_name = "test_case.txt"
+    file_name = "test_case.txt"
 
 print("\n--------------------------------------------------------------------------------------------------------------------")
 print("2. Test case size")
 num_instrs = input("\nEnter how many instructions to have in your test case (default is random from 1 ~ 20,000): ")
 
 if (num_instrs == ""):
-	num_instrs = random.randrange(1, 20001)
+    num_instrs = random.randrange(1, 20001)
 else:
-	num_instrs = int(num_instrs)
+    num_instrs = int(num_instrs)
 
 print("\n--------------------------------------------------------------------------------------------------------------------")
 print("3. Instructions to test")
@@ -37,9 +37,9 @@ Specify which instructions to test with space-separated numbers (e.g., to test S
 instr_string = input("\nEnter which instructions to test (default is all): ")
 
 if (instr_string == ""):
-	instr_list = [hex(i)[2:] for i in range(16)]
+    instr_list = [hex(i)[2:] for i in range(16)]
 else:
-	instr_list = instr_string.split(" ")
+    instr_list = instr_string.split(" ")
 
 print("\n--------------------------------------------------------------------------------------------------------------------")
 print("4. Destination registers to test")
@@ -49,19 +49,19 @@ Specify which registers can be destination registers with space-separated number
 rd_string = input("\nEnter which registers are destination registers (default is all): ")
 
 if (rd_string == ""):
-	rd_list = [hex(i)[2:] for i in range(16)]
+    rd_list = [hex(i)[2:] for i in range(16)]
 else:
-	rd_list = rd_string.split(" ")
+    rd_list = rd_string.split(" ")
 
 
 # Generate test case
 with open(file_name, "w") as f:
-	for i in range(num_instrs):
-		opcode = random.choice(instr_list)
-		rd = random.choice(rd_list)
-		src1 = random.choice([hex(i)[2:] for i in range(16)])
-		src2 = random.choice([hex(i)[2:] for i in range(16)])
-		f.write(opcode + rd + src1 + src2 + "\n")
+    for i in range(num_instrs):
+        opcode = random.choice(instr_list)
+        rd = random.choice(rd_list)
+        src1 = random.choice([hex(i)[2:] for i in range(16)])
+        src2 = random.choice([hex(i)[2:] for i in range(16)])
+        f.write(opcode + rd + src1 + src2 + "\n")
 
 print("\n--------------------------------------------------------------------------------------------------------------------")
 print("Test case file %s has been generated!\n" %(file_name))

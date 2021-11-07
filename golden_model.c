@@ -178,10 +178,6 @@ int main(int argc, char *argv[]) {
         process_instr(output_fp, line, reg_file);
     }
 
-    int i;
-    for (i = 0; i < 16; i++)
-        printf("%x: %hx\n", i, reg_file[i]);
-
     /* Clean up */
     free(line);
     fclose(test_fp);
@@ -189,7 +185,9 @@ int main(int argc, char *argv[]) {
 
     clock_gettime(CLOCK_REALTIME, &end_time); // end time for benchmarking
     int runtime = (end_time.tv_sec - start_time.tv_sec) * 1000000000 + (end_time.tv_nsec - start_time.tv_nsec);
-    printf("Golden model ran for %d ns\n", runtime);
+    
+    printf("Golden model finished. Output in golden_output.txt\n");
+    printf("Ran for %d ms\n", runtime/1000000);
     
     return 0;
 }
