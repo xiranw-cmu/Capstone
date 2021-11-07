@@ -138,10 +138,10 @@ module TB();
     logic instr_valid;
     logic [15:0] instr;
 
-    // For file reading
+    // For file reading and writing
     string test_case_file;
-    int fd;
-    int i = 0;
+    int test_fd, output_fd;
+    int line = 0;
     logic [15:0] file_instr;
 
     Core DUT (.*);
@@ -153,20 +153,26 @@ module TB();
 
     initial begin
         /* Check test case file argument is supplied */
-        if (!$value$plusargs("TEST=%s", test_case_file)) 
-            $display("Usage: ./simv +TEST=<test case file>");
+        if ($value$plusargs("TEST=%s", test_case_file))
+            $display("%s\n", test_case_file);
+        else $display("Usage: ./simv +TEST=<test case file>");
+        /*if (!$value$plusargs("TEST=%s", test_case_file)) 
+            $display("Usage: ./simv +TEST=<test case file>");*/
 
-        /* Open test case file */
-        fd = $fopen(test_case_file, "r");
-        if (!fd)
+        /* Open test case file and output file */
+        test_fd = $fopen(test_case_file, "r");
+        if (!test_fd)
             $fatal("Error: Failed to open file %s\n", test_case_file);
+        output_fd = $fopen("sim_output.txt", "w");
+        if (!output_fd)
+            $fatal("Error: Failed to open file sim_output.txt\n");
         
         /* Process test case file line by line */
-        while (!$feof(fd)) begin
-            $fscanf(fd, "%h\n", file_instr);
+        while (!$feof(test_fd)) begin
+            $fscanf(test_fd, "%h\n", file_instr);
 
             // First instruction, need to reset
-            if (i == 0) begin
+            if (line == 0) begin
                 reset_n <= 1'b0;
                 @(posedge clock);
         
@@ -177,18 +183,26 @@ module TB();
             else begin
                 instr <= file_instr;
                 @(posedge clock);
+
+                // Write register dump to output file
+                for (int i = 0; i < 16; i++)
+                    $fwrite(output_fd, "%h", DUT.rf.registers[i]);
+                $fwrite(output_fd, "\n");
             end
             
-            i++;
+            line++;
         end
-
-        $fclose(fd);
         
         instr_valid <= 1'b0;
-        @(posedge clock);
-        @(posedge clock);
-
-        for (int i = 0; i < 16; i++) $display("%0h: %h", i, DUT.rf.registers[i]);
+        @(posedge clock); // Need extra clock for last instruction to propagate
+        // Write register dump to output file
+        for (int i = 0; i < 16; i++)
+            $fwrite(output_fd, "%h", DUT.rf.registers[i]);
+        $fwrite(output_fd, "\n");
+        
+        /* Clean up */
+        $fclose(test_fd);
+        $fclose(output_fd);
         $finish;
     end
 

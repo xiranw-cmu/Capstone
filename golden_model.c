@@ -1,6 +1,6 @@
 /*
 TODO:
-1. Generate output file
+1. Allow user to pass in output file name optionally
 */
 
 #include <stdint.h>
@@ -27,7 +27,7 @@ typedef enum opcode {
     SRAI = 0xf
 } opcode_t;
 
-void process_instr(char *line, int16_t *reg_file) {
+void process_instr(FILE * output_fp, char *line, int16_t *reg_file) {
     int16_t instr, opcode, dest_reg, src1_reg, src2_reg, src2_imm;
 
     instr = strtol(line, NULL, 16); // convert char * to int16_t
@@ -134,6 +134,12 @@ void process_instr(char *line, int16_t *reg_file) {
     }
 
     reg_file[0] = 0; // r0 = 0 does not change
+
+    /* Write register dump to output file */
+    for (int i = 0; i < 16; i++) {
+        fprintf(output_fp, "%04hx", reg_file[i]);
+    }
+    fprintf(output_fp, "\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -146,10 +152,15 @@ int main(int argc, char *argv[]) {
     struct timespec start_time, end_time;
     clock_gettime(CLOCK_REALTIME, &start_time); // start time for benchmarking
 
-    /* Open test case file */
-    FILE *fp = fopen(argv[1], "r");
-    if (fp == NULL) {
+    /* Open test case file and output file */
+    FILE *test_fp = fopen(argv[1], "r");
+    if (test_fp == NULL) {
         fprintf(stderr, "Error: Failed to open file %s\n", argv[1]);
+        exit(-1);
+    }
+    FILE *output_fp = fopen("golden_output.txt", "w");
+    if (output_fp == NULL) {
+        fprintf(stderr, "Error: Failed to open file golden_output.txt\n");
         exit(-1);
     }
 
@@ -159,20 +170,22 @@ int main(int argc, char *argv[]) {
     ssize_t read;
     char *line = NULL;
     size_t line_size;
-    while ((read = getline(&line, &line_size, fp)) != -1) { // stop at end-of-file
+    while ((read = getline(&line, &line_size, test_fp)) != -1) { // stop at end-of-file
         if (read != 5) { // 4 bytes for instr + 1 byte for new line char
             fprintf(stderr, "Error: Encountered %zu-byte line when each line should be 5 bytes\n", read);
             exit(-1);
         }
-        process_instr(line, reg_file);
+        process_instr(output_fp, line, reg_file);
     }
 
     int i;
     for (i = 0; i < 16; i++)
         printf("%x: %hx\n", i, reg_file[i]);
 
+    /* Clean up */
     free(line);
-    fclose(fp);
+    fclose(test_fp);
+    fclose(output_fp);
 
     clock_gettime(CLOCK_REALTIME, &end_time); // end time for benchmarking
     int runtime = (end_time.tv_sec - start_time.tv_sec) * 1000000000 + (end_time.tv_nsec - start_time.tv_nsec);
