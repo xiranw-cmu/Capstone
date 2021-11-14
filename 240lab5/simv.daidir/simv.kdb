@@ -1,0 +1,9 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5
+SystemC=FALSE
+UUM=FALSE
+KDB=FALSE
+USE_NOVAS_HOME=FALSE
+TOP=MagComp Adder Multiplexer Mux2to1 Decoder Register Demux ShiftRegister BarrelShiftRegister Memory OffsetCheck Receiver_tb 

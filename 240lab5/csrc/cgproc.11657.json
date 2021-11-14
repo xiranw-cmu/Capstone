@@ -1,0 +1,51 @@
+{
+    "Modules": {
+        "Memory": {},
+        "BarrelShiftRegister": {},
+        "...MASTER...": {},
+        "Mux2to1": {},
+        "std": {},
+        "Adder": {},
+        "MagComp": {},
+        "Receiver_tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Multiplexer": {},
+        "Decoder": {},
+        "Register": {},
+        "Demux": {},
+        "ShiftRegister": {},
+        "OffsetCheck": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "bytes": 13320,
+            "mode": 4,
+            "checksum": 4294967295
+        },
+        "pjg4r_d": {
+            "mod": "Receiver_tb",
+            "out": "pjg4r_d.o",
+            "bytes": 36656,
+            "mode": 4,
+            "checksum": 4294967295,
+            "archive": "archive.18/_11657_archive_1.a"
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "size": 36656,
+            "archive": "archive.18/_11657_archive_1.a",
+            "objects": [
+                [
+                    "pjg4r_d.o",
+                    36656
+                ]
+            ]
+        }
+    ]
+}

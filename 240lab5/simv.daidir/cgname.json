@@ -1,0 +1,72 @@
+{
+    "Mux2to1": [
+        "Mux2to1",
+        "wxUbx",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "Adder": [
+        "Adder",
+        "xUt1z",
+        "module"
+    ],
+    "MagComp": [
+        "MagComp",
+        "vaLRj",
+        "module"
+    ],
+    "Receiver_tb": [
+        "Receiver_tb",
+        "pjg4r",
+        "module"
+    ],
+    "Multiplexer": [
+        "Multiplexer",
+        "UxyT3",
+        "module"
+    ],
+    "Decoder": [
+        "Decoder",
+        "t8TcA",
+        "module"
+    ],
+    "Register": [
+        "Register",
+        "kynWL",
+        "module"
+    ],
+    "Demux": [
+        "Demux",
+        "RxiHm",
+        "module"
+    ],
+    "ShiftRegister": [
+        "ShiftRegister",
+        "WB1J1",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
+    "Memory": [
+        "Memory",
+        "f0K8C",
+        "module"
+    ],
+    "BarrelShiftRegister": [
+        "BarrelShiftRegister",
+        "ts568",
+        "module"
+    ],
+    "OffsetCheck": [
+        "OffsetCheck",
+        "uHZsk",
+        "module"
+    ]
+}

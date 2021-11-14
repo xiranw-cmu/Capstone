@@ -1,0 +1,748 @@
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Nov 13 15:02 2021
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/inter.vpd' was opened successfully.
+ab
+15
+ab
+15
+a3
+15
+15
+e3
+15
+15
+15
+15
+99
+15
+15
+ad
+15
+9e
+15
+a3
+15
+15
+b1
+15
+98
+15
+e0
+15
+15
+15
+a5
+15
+ef
+15
+$finish called from file "lab5_tb.sv", line 25.
+$finish at simulation time                 1003
+Simulation complete, time is 1003.
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Nov 13 15:06 2021
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/inter.vpd' was opened successfully.
+ab
+46
+47
+ab
+45
+a3
+54
+15
+20
+e3
+55
+15
+15
+45
+15
+99
+20
+15
+15
+54
+ad
+4b
+15
+9e
+2a
+15
+a3
+44
+15
+15
+b1
+73
+15
+98
+11
+15
+e0
+d0
+15
+15
+50
+15
+4f
+a5
+41
+49
+ef
+4e
+$finish called from file "lab5_tb.sv", line 25.
+$finish at simulation time                 1003
+Simulation complete, time is 1003.
+With selected criteria, DVE has found 'results at time 643
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 687
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 735
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 777
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 827
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 863
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 911
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 957
+    Receiver_tb.rec.isNew'.
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Nov 13 15:10 2021
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/inter.vpd' was opened successfully.
+ab
+46
+47
+ab
+45
+a3
+54
+15
+20
+e3
+55
+15
+15
+45
+15
+99
+20
+15
+15
+54
+ad
+4b
+15
+9e
+2a
+15
+a3
+44
+15
+15
+b1
+73
+15
+98
+11
+15
+e0
+d0
+15
+15
+50
+15
+4f
+a5
+41
+49
+ef
+4e
+15
+54
+15
+15
+45
+15
+15
+54
+9d
+2a
+15
+90
+2a
+15
+99
+20
+15
+98
+21
+15
+98
+20
+15
+15
+15
+20
+15
+98
+20
+15
+98
+21
+15
+99
+20
+15
+90
+2a
+15
+9e
+20
+15
+9e
+2a
+15
+$finish called from file "lab5_tb.sv", line 25.
+$finish at simulation time                10003
+Simulation complete, time is 10003.
+With selected criteria, DVE has found 'results at time 1057
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1101
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1147
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1197
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1247
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1289
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1333
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1377
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1425
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1467
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1517
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1553
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1601
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1647
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1697
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1747
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1791
+    Receiver_tb.rec.isNew'.
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Nov 13 15:13 2021
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/inter.vpd' was opened successfully.
+ab
+46
+47
+ab
+45
+a3
+54
+15
+20
+e3
+55
+15
+15
+45
+15
+99
+20
+15
+15
+54
+ad
+4b
+15
+9e
+2a
+15
+a3
+44
+15
+15
+b1
+73
+15
+98
+11
+15
+e0
+d0
+15
+15
+50
+15
+4f
+a5
+41
+49
+ef
+4e
+15
+54
+15
+15
+45
+15
+15
+54
+9d
+2a
+15
+90
+2a
+15
+99
+20
+15
+98
+21
+15
+98
+20
+15
+15
+15
+20
+15
+98
+20
+15
+98
+21
+15
+99
+20
+15
+90
+2a
+15
+9e
+20
+15
+9e
+2a
+15
+$finish called from file "lab5_tb.sv", line 25.
+$finish at simulation time                10003
+Simulation complete, time is 10003.
+015.09/gui/dve/libraries/syn/generic.sdb'
+1 driver (1 active statement) found for signal: Receiver_tb.rec.dec.outCode[12:0]
+Warning: [AD-MD] Missing dump for active drivers
+  Missing dump for the following signals when doing active drivers analysis:
+      * Receiver_tb.rec.shiftReg.clock from time 172
+      * Receiver_tb.rec.shiftReg.in from time 173
+      * Receiver_tb.rec.shiftReg.out from time 173
+      * Receiver_tb.rec.shiftReg.reset from time 172
+  Some drivers couldn't be analyzed and will be shown as active.
+  Please dump the listed signals if you need more precise active drivers 
+  analysis.
+2 drivers (2 possibly active statements) found for signal: Receiver_tb.rec.dec.inCode[12:0]
+Warning: [DVWW009] 
+Seek hit time zero with no more matches.
+Warning: [DVWW009] 
+Seek hit time zero with no more matches.
+Warning: [DVWW009] 
+Seek hit time zero with no more matches.
+Warning: [DVWW010] 
+Seek hit end of values with no more matches.
+Warning: [DVWW010] 
+Seek hit end of values with no more matches.
+Warning: [DVWW010] 
+Seek hit end of values with no more matches.
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Nov 13 15:31 2021
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/inter.vpd' was opened successfully.
+a5
+59
+15
+4f
+e3
+15
+55
+15
+52
+15
+20
+a2
+56
+15
+ab
+4b
+15
+15
+54
+15
+45
+90
+2a
+15
+ad
+4b
+15
+15
+46
+90
+20
+15
+29
+43
+bf
+6f
+15
+8f
+4e
+15
+46
+a5
+41
+49
+a3
+4c
+44
+ab
+45
+ef
+4e
+89
+43
+93
+25
+15
+d8
+70
+15
+a5
+79
+69
+a5
+5b
+15
+9e
+20
+15
+ae
+4c
+15
+15
+15
+45
+b1
+52
+22
+57
+ad
+48
+ab
+45
+ae
+4c
+15
+ae
+4d
+15
+af
+4e
+15
+9b
+26
+15
+$finish called from file "lab5_tb.sv", line 25.
+$finish at simulation time                10003
+Simulation complete, time is 10003.
+1 driver (1 active statement) found for signal: Receiver_tb.rec.messageByte[7:0]
+Warning: [DVWW009] 
+Seek hit time zero with no more matches.
+With selected criteria, DVE has found 'results at time 87
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 137
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 173
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 221
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 267
+    Receiver_tb.rec.isNew'.
+1 driver (1 active statement) found for signal: Receiver_tb.rec.messageByte[7:0]
+With selected criteria, DVE has found 'results at time 317
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 367
+    Receiver_tb.rec.isNew'.
+1 driver (1 active statement) found for signal: Receiver_tb.rec.messageByte[7:0]
+With selected criteria, DVE has found 'results at time 411
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 457
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 483
+    Receiver_tb.rec.messageByte[7:0]'.
+With selected criteria, DVE has found 'results at time 507
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 557
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 599
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 643
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 687
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 735
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 777
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 827
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 863
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 911
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 957
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1007
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1057
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1101
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1147
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1197
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1247
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1289
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1333
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1377
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1425
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1467
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1517
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1553
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1601
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1647
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1697
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1747
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1791
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1837
+    Receiver_tb.rec.isNew'.
+Warning: [DVWW010] 
+Seek hit end of values with no more matches.
+Chronologic VCS simulator copyright 1991-2015
+Contains Synopsys proprietary information.
+Compiler version K-2015.09_Full64; Runtime version K-2015.09_Full64;  Nov 13 15:47 2021
+VCD+ Writer K-2015.09_Full64 Copyright (c) 1991-2015 by Synopsys Inc.
+The file '/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/inter.vpd' was opened successfully.
+a5
+59
+15
+4f
+15
+55
+a1
+52
+15
+20
+a2
+56
+ab
+4b
+4f
+15
+54
+15
+45
+90
+2a
+20
+ad
+4b
+4f
+15
+46
+90
+20
+15
+43
+bf
+6f
+4f
+15
+4e
+15
+46
+15
+49
+15
+44
+ab
+45
+15
+4e
+15
+43
+93
+25
+15
+d8
+70
+20
+15
+a5
+5b
+53
+9e
+20
+ae
+4c
+4f
+23
+d6
+56
+15
+45
+15
+52
+15
+57
+ad
+48
+15
+45
+ae
+4c
+15
+4d
+ac
+49
+af
+4e
+ac
+47
+9b
+26
+2e
+$finish called from file "lab5_tb.sv", line 25.
+$finish at simulation time                10003
+Simulation complete, time is 10003.
+With selected criteria, DVE has found 'results at time 45
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 87
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 137
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 173
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 221
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 267
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 317
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 367
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 411
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 457
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 507
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 557
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 599
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 643
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 687
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 735
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 777
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 827
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 863
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 911
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 957
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1007
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1057
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1101
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1147
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1197
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1247
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1289
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1333
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1377
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1425
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1467
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1517
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1553
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1601
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1647
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1697
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1747
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1791
+    Receiver_tb.rec.isNew'.
+With selected criteria, DVE has found 'results at time 1837
+    Receiver_tb.rec.isNew'.
+Warning: [DVWW010] 
+Seek hit end of values with no more matches.
+Warning: [DVWW010] 
+Seek hit end of values with no more matches.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 10003
+CPU Time:      0.100 seconds;       Data structure size:   0.0Mb
+Sat Nov 13 15:53:09 2021

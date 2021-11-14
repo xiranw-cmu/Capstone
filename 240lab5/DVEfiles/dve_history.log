@@ -1,0 +1,705 @@
+# Preference setting overrides
+gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_type {bool} -value {false}
+
+# State setting overrides
+gui_state_default_create -off -ini
+gui_set_state_value -category Layout -key child_console_size_x -value 271
+gui_set_state_value -category Layout -key child_console_size_y -value 254
+gui_set_state_value -category Layout -key child_data_coltype -value 112
+gui_set_state_value -category Layout -key child_data_colvalue -value 120
+gui_set_state_value -category Layout -key child_data_colvariable -value 171
+gui_set_state_value -category Layout -key child_data_size_x -value 407
+gui_set_state_value -category Layout -key child_data_size_y -value 833
+gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
+gui_set_state_value -category Layout -key child_hier_colpd -value 0
+gui_set_state_value -category Layout -key child_hier_size_x -value 162
+gui_set_state_value -category Layout -key child_hier_size_y -value 833
+gui_set_state_value -category Layout -key child_source_docknewline -value false
+gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
+gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
+gui_set_state_value -category Layout -key child_source_size_x -value 1353
+gui_set_state_value -category Layout -key child_source_size_y -value 828
+gui_set_state_value -category Layout -key child_wave_colname -value 369
+gui_set_state_value -category Layout -key child_wave_colvalue -value 370
+gui_set_state_value -category Layout -key child_wave_left -value 743
+gui_set_state_value -category Layout -key child_wave_right -value 1811
+gui_set_state_value -category Layout -key main_pos_x -value 3240
+gui_set_state_value -category Layout -key main_pos_y -value 37
+gui_set_state_value -category Layout -key main_size_x -value 5159
+gui_set_state_value -category Layout -key main_size_y -value 1199
+gui_set_state_value -category Layout -key stand_wave_child_docknewline -value false
+gui_set_state_value -category Layout -key stand_wave_child_pos_x -value {-2}
+gui_set_state_value -category Layout -key stand_wave_child_pos_y -value {-15}
+gui_set_state_value -category Layout -key stand_wave_child_size_x -value 2564
+gui_set_state_value -category Layout -key stand_wave_child_size_y -value 1256
+gui_set_state_value -category Layout -key stand_wave_top_pos_x -value 8
+gui_set_state_value -category Layout -key stand_wave_top_pos_y -value 68
+gui_set_state_value -category Layout -key stand_wave_top_size_x -value 2567
+gui_set_state_value -category Layout -key stand_wave_top_size_y -value 1404
+gui_create_state_key -category FindDialog -key m_pMatchCase -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pMatchWord -value_type bool -value false
+gui_create_state_key -category FindDialog -key m_pUseCombo -value_type string -value {}
+gui_create_state_key -category FindDialog -key m_pWrapAround -value_type bool -value true
+gui_create_state_key -category Widget_History -key Find|m_pFindFrame|m_pFindCombo -value_type string -value 2000
+gui_create_state_key -category Widget_History -key TopLevel.1|qt_top_dock|&Edit|FindCombo -value_type string -value 2000
+gui_create_state_key -category Widget_History -key TopLevel.2|qt_top_dock|&Edit|FindCombo -value_type string -value 2000
+gui_create_state_key -category Widget_History -key dlgSearchValue|m_ValueComboBox -value_type string -value {10032407 032407}
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_VPDCombo} -value_type string -value inter.vpd
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_argsCombo} -value_type string -value {{-ucligui }}
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_curDirCombo} -value_type string -value /afs/ece.cmu.edu/usr/gfieni/Private/18341projects/p3/p3-noc-gfieni2022
+gui_create_state_key -category Widget_History -key {dlgSimSetup|m_setupTab|tab pages|SimTab|m_exeCombo} -value_type string -value /afs/ece.cmu.edu/usr/gfieni/Private/18341projects/p3/p3-noc-gfieni2022/simv
+gui_state_default_create -off
+
+# Begin command logging
+gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
+gui_list_select -id Hier.1 -current_item_name Receiver_tb -current_item_type Scope  -selected  { Receiver_tb   }
+gui_list_expand -id  Hier.1   Receiver_tb
+gui_list_select -id Data.1 -selected  { {Receiver_tb.messageByte[7:0]}   }
+gui_list_select -id Data.1 -selected  { Receiver_tb.clock  Receiver_tb.reset  Receiver_tb.serial  Receiver_tb.isNew  {Receiver_tb.messageByte[7:0]}   }
+gui_open_window Wave
+gui_list_add -id Wave.1 -from Data.1 { Receiver_tb.clock Receiver_tb.reset Receiver_tb.serial Receiver_tb.isNew {Receiver_tb.messageByte[7:0]} } -insertionbar
+gui_wv_zoom_timerange -id  Wave.1 0 597
+gui_list_select -id Hier.1 -current_item_name Receiver_tb.rec -current_item_type Scope  -selected  { Receiver_tb.rec   }
+gui_list_select -id Data.1 -selected  { {Receiver_tb.rec.decodedOut[12:0]}   }
+gui_list_select -id Data.1 -selected  { Receiver_tb.rec.serialIn  {Receiver_tb.rec.messageByte[7:0]}  Receiver_tb.rec.isNew  Receiver_tb.rec.en  {Receiver_tb.rec.count[3:0]}  Receiver_tb.rec.countClear  Receiver_tb.rec.countErr  {Receiver_tb.rec.parallelOut[14:0]}  Receiver_tb.rec.shiftErr  {Receiver_tb.rec.decodedOut[12:0]}   }
+gui_list_add  -id  Wave.1   -after {Receiver_tb.messageByte[7:0]} {{Receiver_tb.rec.serialIn} {Receiver_tb.rec.messageByte[7:0]} {Receiver_tb.rec.isNew} {Receiver_tb.rec.en} {Receiver_tb.rec.count[3:0]} {Receiver_tb.rec.countClear} {Receiver_tb.rec.countErr} {Receiver_tb.rec.parallelOut[14:0]} {Receiver_tb.rec.shiftErr} {Receiver_tb.rec.decodedOut[12:0]}} 
+gui_marker_move -id  Wave.1 C1 215
+gui_sim_continue  
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.serialIn   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.serialIn  {Receiver_tb.rec.messageByte[7:0]}  Receiver_tb.rec.isNew  Receiver_tb.rec.en  {Receiver_tb.rec.count[3:0]}  Receiver_tb.rec.countClear  Receiver_tb.rec.countErr  {Receiver_tb.rec.parallelOut[14:0]}  Receiver_tb.rec.shiftErr  {Receiver_tb.rec.decodedOut[12:0]}   }
+gui_sg_create  Group2 
+gui_list_add_group -id  Wave.1   {Group2} 
+gui_list_move  -id  Wave.1    -sid  Wave.1   -after Group2 {{Receiver_tb.rec.serialIn} {Receiver_tb.rec.messageByte[7:0]} {Receiver_tb.rec.isNew} {Receiver_tb.rec.en} {Receiver_tb.rec.count[3:0]} {Receiver_tb.rec.countClear} {Receiver_tb.rec.countErr} {Receiver_tb.rec.parallelOut[14:0]} {Receiver_tb.rec.shiftErr} {Receiver_tb.rec.decodedOut[12:0]}}
+gui_list_select -id Wave.1 -selected  {  }
+gui_wv_scroll_hslidermove -id  Wave.1 2115
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_wv_zoom_timerange -id  Wave.1 11 48
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.messageByte[7:0]}   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.count[3:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix decimal
+gui_wv_scrollleft -id  Wave.1  line
+gui_zoom -window Wave.1 -factor 0.5
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.parallelOut[14:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix binary
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.decodedOut[12:0]}   }
+gui_marker_move -id  Wave.1 C1 45
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 137
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 143
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 221
+gui_list_select -id Wave.1 -selected  { Receiver_tb.serial   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.isNew   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.serial   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.isNew   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.messageByte[7:0]}   }
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 365
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scrollleft -id  Wave.1  page
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_marker_move -id  Wave.1 C1 30
+gui_sim_restart
+gui_sim_continue  
+gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 8 72
+gui_marker_move -id  Wave.1 C1 45
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.messageByte[7:0]}   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { Receiver_tb.serial   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.reset   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { Receiver_tb.serial   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.serialIn   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.en   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.count[3:0]}   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.countClear   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.countErr   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.parallelOut[14:0]}   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.shiftErr   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.decodedOut[12:0]}   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.shiftErr   }
+gui_zoom -window Wave.1 -factor 0.5
+gui_marker_move -id  Wave.1 C1 87
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.count[3:0]}   }
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 177
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_marker_move -id  Wave.1 C1 267
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 599
+gui_marker_move -id  Wave.1 C1 571
+gui_marker_move -id  Wave.1 C1 569
+gui_marker_move -id  Wave.1 C1 615
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.countErr   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.count[3:0]}   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_criteria -id Wave.1 "Rising" 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_sim_restart
+gui_sim_continue  
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 575 2184
+gui_wv_zoom_timerange -id  Wave.1 813 937
+gui_wv_zoom_timerange -id  Wave.1 849 850
+gui_wv_zoom_timerange -id  Wave.1 849 850
+gui_marker_move -id  Wave.1 C1 849
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_marker_move -id  Wave.1 C1 1007
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_list_select -id Wave.1 -selected  { Receiver_tb.serial   }
+gui_wv_zoom_timerange -id  Wave.1 10 181
+gui_marker_move -id  Wave.1 C1 66
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_marker_move -id  Wave.1 C1 15
+gui_marker_move -id  Wave.1 C1 45
+gui_marker_move -id  Wave.1 C1 57
+gui_marker_move -id  Wave.1 C1 137
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 143
+gui_marker_move -id  Wave.1 C1 173
+gui_marker_move -id  Wave.1 C1 143
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.shiftErr   }
+gui_list_select -id Data.1 -selected  {  }
+gui_list_expand -id  Hier.1   Receiver_tb.rec
+gui_list_select -id Hier.1 -current_item_name Receiver_tb.rec.dec -current_item_type Scope  -selected  { Receiver_tb.rec.dec   }
+gui_list_select -id Data.1 -selected  { Receiver_tb.rec.dec.globalP   }
+gui_list_select -id Data.1 -selected  { {Receiver_tb.rec.dec.inCode[12:0]}  {Receiver_tb.rec.dec.syndrome[3:0]}  Receiver_tb.rec.dec.is1BitErr  Receiver_tb.rec.dec.is2BitErr  {Receiver_tb.rec.dec.outCode[12:0]}  Receiver_tb.rec.dec.globalP   }
+gui_sg_create  Group3 
+gui_list_add_group -id  Wave.1   {Group3} 
+gui_list_add  -id  Wave.1   -after Group3 {{Receiver_tb.rec.dec.inCode[12:0]} {Receiver_tb.rec.dec.syndrome[3:0]} {Receiver_tb.rec.dec.is1BitErr} {Receiver_tb.rec.dec.is2BitErr} {Receiver_tb.rec.dec.outCode[12:0]} {Receiver_tb.rec.dec.globalP}}
+gui_sim_restart
+gui_sim_continue  
+gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 0 2150
+gui_list_select -id Wave.1 -selected  {  }
+gui_wv_zoom_timerange -id  Wave.1 12 318
+gui_marker_move -id  Wave.1 C1 13
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.inCode[12:0]}   }
+gui_marker_move -id  Wave.1 C1 148
+gui_wv_zoom_timerange -id  Wave.1 143 190
+gui_wv_zoom_timerange -id  Wave.1 171 173
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_wv_zoom_timerange -id  Wave.1 119 256
+gui_marker_move -id  Wave.1 C1 232
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.outCode[12:0]}   }
+gui_marker_move -id  Wave.1 C1 173
+gui_list_action -id  Wave.1 {Receiver_tb.rec.dec.outCode[12:0]}
+gui_get_drivers -id Wave.1 -signal {Receiver_tb.rec.dec.outCode[12:0]}
+gui_list_select -id Wave.1 -selected  {  }
+gui_list_expand -id  Wave.1   {Receiver_tb.rec.dec.syndrome[3:0]}
+gui_list_collapse -id  Wave.1   {Receiver_tb.rec.dec.syndrome[3:0]}
+gui_marker_move -id  Wave.1 C1 171
+gui_list_select -id Wave.1 -selected  { Receiver_tb.serial   }
+gui_marker_move -id  Wave.1 C1 145
+gui_marker_move -id  Wave.1 C1 171
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.dec.is2BitErr   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.dec.is1BitErr   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.dec.globalP   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.dec.is2BitErr   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.outCode[12:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix binary
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.syndrome[3:0]}   }
+gui_marker_move -id  Wave.1 C1 173
+gui_wv_zoom_timerange -id  Wave.1 165 168
+gui_wv_zoom_timerange -id  Wave.1 166 167
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_wv_zoom_timerange -id  Wave.1 139 169
+gui_wv_zoom_timerange -id  Wave.1 157 158
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_wv_zoom_timerange -id  Wave.1 131 185
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.parallelOut[14:0]}   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.inCode[12:0]}   }
+gui_list_action -id  Wave.1 {Receiver_tb.rec.dec.inCode[12:0]}
+gui_get_drivers -id Wave.1 -signal {Receiver_tb.rec.dec.inCode[12:0]}
+gui_list_select -id Wave.1 -selected  {  }
+gui_list_set_selected_property -id Wave.1 -radix binary
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.dec.is1BitErr   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_marker_move -id  Wave.1 C1 191
+gui_marker_move -id  Wave.1 C1 171
+gui_marker_move -id  Wave.1 C1 191
+gui_link_wave_window -link -id Wave.1
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 269
+gui_marker_move -id  Wave.1 C1 267
+gui_wv_zoom_timerange -id  Wave.1 225 279
+gui_wv_zoom_timerange -id  Wave.1 269 279
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.outCode[12:0]}   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.dec.globalP   }
+gui_wv_zoom_timerange -id  Wave.1 255 270
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_wv_zoom_timerange -id  Wave.1 233 240
+gui_wv_zoom_timerange -id  Wave.1 236 237
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_wv_zoom_timerange -id  Wave.1 235 269
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_marker_move -id  Wave.1 C1 265
+gui_marker_move -id  Wave.1 C1 267
+gui_zoom -window Wave.1 -factor 0.5
+gui_marker_move -id  Wave.1 C1 265
+gui_marker_move -id  Wave.1 C1 267
+gui_marker_move -id  Wave.1 C1 278
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.inCode[12:0]}   }
+gui_zoom -window Wave.1 -factor 0.5
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_wv_scrollright -id  Wave.1  line
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_marker_move -id  Wave.1 C1 287
+gui_marker_move -id  Wave.1 C1 317
+gui_marker_move -id  Wave.1 C1 287
+gui_marker_move -id  Wave.1 C1 317
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_zoom -window Wave.1 -factor 2
+gui_marker_move -id  Wave.1 C1 367
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.countErr   }
+gui_seek_previous -id Wave.1 -number 1 
+gui_seek_previous -id Wave.1 -number 1 
+gui_seek_previous -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.outCode[12:0]}   }
+gui_sim_restart
+gui_sim_continue  
+gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 0 1983
+gui_wv_zoom_timerange -id  Wave.1 11 142
+gui_marker_move -id  Wave.1 C1 45
+gui_get_drivers -id Wave.1 -signal {Receiver_tb.rec.messageByte[7:0]}
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_previous -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix decimal
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_copy_selected -id Wave.1
+gui_paste_clipboard -id Wave.1
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_action -id  Wave.1 {Receiver_tb.rec.messageByte[7:0]}
+gui_get_drivers -id Wave.1 -signal {Receiver_tb.rec.messageByte[7:0]}
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_move  -id  Wave.1    -sid  Wave.1   -after {Receiver_tb.rec.messageByte[7:0]} {{Receiver_tb.rec.messageByte[7:0]}} 
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix decimal
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_action -id  Wave.1 {Receiver_tb.rec.messageByte[7:0]}
+gui_get_drivers -id Wave.1 -signal {Receiver_tb.rec.messageByte[7:0]}
+gui_list_select -id Wave.1 -selected  {  }
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.count[3:0]}   }
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_wv_scroll_hslidermove -id  Wave.1 484
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_wv_zoom_timerange -id  Wave.1 8 440
+gui_marker_move -id  Wave.1 C1 221
+gui_wv_zoom_timerange -id  Wave.1 153 184
+gui_wv_zoom_timerange -id  Wave.1 165 170
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_zoom -window Wave.1 -factor 0.5
+gui_wv_zoom_timerange -id  Wave.1 174 230
+gui_zoom -window Wave.1 -factor 0.5
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.dec.syndrome[3:0]}   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix decimal
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_delete_selected -id  Wave.1
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_list_select -id Wave.1 -selected  { {Receiver_tb.rec.messageByte[7:0]}   }
+gui_list_set_selected_property -id Wave.1 -radix hex
+gui_sim_restart
+gui_sim_continue  
+gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 101 2094
+gui_wv_zoom_timerange -id  Wave.1 131 240
+gui_wv_scroll_hslidermove -id  Wave.1 0
+gui_list_set_selected_property -id Wave.1 -radix ascii
+gui_list_select -id Wave.1 -selected  { Receiver_tb.rec.isNew   }
+gui_marker_move -id  Wave.1 C1 41
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_seek_next -id Wave.1 -number 1 
+gui_close_window -window TopLevel.2

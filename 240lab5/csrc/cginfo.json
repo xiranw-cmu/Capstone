@@ -1,0 +1,290 @@
+{
+    "MlibObjs": {},
+    "PrevCompiledModules": {
+        "Receiver_tb": {
+            "pjg4r_d": {
+                "bytes": 36504,
+                "mod": "Receiver_tb",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_11657_archive_1.a",
+                "out": "pjg4r_d.o"
+            }
+        },
+        "Multiplexer": {
+            "UxyT3_d": {
+                "bytes": 7550,
+                "mod": "Multiplexer",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "UxyT3_d.o"
+            }
+        },
+        "Decoder": {
+            "t8TcA_d": {
+                "bytes": 9009,
+                "mod": "Decoder",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "t8TcA_d.o"
+            }
+        },
+        "Register": {
+            "kynWL_d": {
+                "bytes": 8963,
+                "mod": "Register",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "kynWL_d.o"
+            }
+        },
+        "MagComp": {
+            "vaLRj_d": {
+                "bytes": 8249,
+                "mod": "MagComp",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "vaLRj_d.o"
+            }
+        },
+        "...MASTER...": {
+            "amcQw_d": {
+                "bytes": 13320,
+                "mod": "...MASTER...",
+                "out": "objs/amcQw_d.o",
+                "mode": 4,
+                "checksum": 4294967295
+            }
+        },
+        "BarrelShiftRegister": {
+            "ts568_d": {
+                "bytes": 10214,
+                "mod": "BarrelShiftRegister",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "ts568_d.o"
+            }
+        },
+        "Memory": {
+            "f0K8C_d": {
+                "bytes": 11772,
+                "mod": "Memory",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "f0K8C_d.o"
+            }
+        },
+        "Mux2to1": {
+            "wxUbx_d": {
+                "bytes": 8676,
+                "mod": "Mux2to1",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "wxUbx_d.o"
+            }
+        },
+        "Demux": {
+            "RxiHm_d": {
+                "bytes": 9935,
+                "mod": "Demux",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "RxiHm_d.o"
+            }
+        },
+        "ShiftRegister": {
+            "WB1J1_d": {
+                "bytes": 9467,
+                "mod": "ShiftRegister",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "WB1J1_d.o"
+            }
+        },
+        "Adder": {
+            "xUt1z_d": {
+                "bytes": 10391,
+                "mod": "Adder",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "xUt1z_d.o"
+            }
+        },
+        "std": {
+            "reYIK_d": {
+                "bytes": 33308,
+                "mod": "std",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "reYIK_d.o"
+            }
+        },
+        "OffsetCheck": {
+            "uHZsk_d": {
+                "bytes": 12072,
+                "mod": "OffsetCheck",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.18/_prev_archive_1.a",
+                "out": "uHZsk_d.o"
+            }
+        }
+    },
+    "NameTable": {
+        "Mux2to1": [
+            "Mux2to1",
+            "wxUbx",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "Adder": [
+            "Adder",
+            "xUt1z",
+            "module"
+        ],
+        "MagComp": [
+            "MagComp",
+            "vaLRj",
+            "module"
+        ],
+        "Receiver_tb": [
+            "Receiver_tb",
+            "pjg4r",
+            "module"
+        ],
+        "Multiplexer": [
+            "Multiplexer",
+            "UxyT3",
+            "module"
+        ],
+        "Decoder": [
+            "Decoder",
+            "t8TcA",
+            "module"
+        ],
+        "Register": [
+            "Register",
+            "kynWL",
+            "module"
+        ],
+        "Demux": [
+            "Demux",
+            "RxiHm",
+            "module"
+        ],
+        "ShiftRegister": [
+            "ShiftRegister",
+            "WB1J1",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ],
+        "Memory": [
+            "Memory",
+            "f0K8C",
+            "module"
+        ],
+        "BarrelShiftRegister": [
+            "BarrelShiftRegister",
+            "ts568",
+            "module"
+        ],
+        "OffsetCheck": [
+            "OffsetCheck",
+            "uHZsk",
+            "module"
+        ]
+    },
+    "CompileStrategy": "fullobj",
+    "stat": {
+        "nMops": 2452,
+        "ru_self_cgstart": {
+            "ru_minflt": 12799,
+            "ru_utime_sec": 0.063818,
+            "ru_nivcsw": 4,
+            "ru_stime_sec": 0.041848000000000003,
+            "ru_maxrss_kb": 52616,
+            "ru_majflt": 0,
+            "ru_nvcsw": 390
+        },
+        "ru_childs_cgstart": {
+            "ru_minflt": 0,
+            "ru_utime_sec": 0.0,
+            "ru_nivcsw": 0,
+            "ru_stime_sec": 0.0,
+            "ru_maxrss_kb": 0,
+            "ru_majflt": 0,
+            "ru_nvcsw": 0
+        },
+        "ru_childs_end": {
+            "ru_minflt": 0,
+            "ru_utime_sec": 0.0,
+            "ru_nivcsw": 0,
+            "ru_stime_sec": 0.0,
+            "ru_maxrss_kb": 0,
+            "ru_majflt": 0,
+            "ru_nvcsw": 0
+        },
+        "mopSpeed": 112518.35535976502,
+        "nQuads": 1071,
+        "quadSpeed": 49146.475770925099,
+        "totalObjSize": 139911,
+        "ru_self_end": {
+            "ru_minflt": 15182,
+            "ru_utime_sec": 0.085610000000000006,
+            "ru_nivcsw": 4,
+            "ru_stime_sec": 0.065772999999999998,
+            "ru_maxrss_kb": 60356,
+            "ru_majflt": 0,
+            "ru_nvcsw": 528
+        },
+        "mop/quad": 2.2894491129785246,
+        "outputSizePerQuad": 130.0,
+        "Frontend(%)": 74.545029786239922,
+        "CodeGen(%)": 25.454970213760081
+    },
+    "CurCompileModules": [
+        "...MASTER...",
+        "Receiver_tb"
+    ],
+    "CurCompileUdps": {},
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 89935
+    },
+    "PEModules": [],
+    "LVLData": [
+        "SIM"
+    ],
+    "CompileProcesses": [
+        "cgproc.11657.json"
+    ],
+    "Misc": {
+        "csrc_abs": "/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/csrc",
+        "cwd": "/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5",
+        "csrc": "csrc",
+        "daidir": "simv.daidir",
+        "daidir_abs": "/afs/ece.cmu.edu/usr/gfieni/Private/18500/240lab5/simv.daidir",
+        "default_output_dir": "csrc",
+        "archive_dir": "archive.18"
+    },
+    "CompileStatus": "Successful"
+}
