@@ -1,0 +1,9 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/afs/ece.cmu.edu/usr/alhoffma/Private/18500/capstone
+SystemC=FALSE
+UUM=FALSE
+KDB=FALSE
+USE_NOVAS_HOME=FALSE
+TOP=Receiver_tb MagComp Adder Multiplexer Mux2to1 Decoder Register Demux ShiftRegister BarrelShiftRegister Memory OffsetCheck 

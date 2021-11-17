@@ -1,0 +1,233 @@
+{
+    "NameTable": {
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "OffsetCheck": [
+            "OffsetCheck",
+            "uHZsk",
+            "module"
+        ],
+        "Mux2to1": [
+            "Mux2to1",
+            "wxUbx",
+            "module"
+        ],
+        "Receiver_tb": [
+            "Receiver_tb",
+            "pjg4r",
+            "module"
+        ],
+        "MagComp": [
+            "MagComp",
+            "vaLRj",
+            "module"
+        ],
+        "Adder": [
+            "Adder",
+            "xUt1z",
+            "module"
+        ],
+        "Decoder": [
+            "Decoder",
+            "t8TcA",
+            "module"
+        ],
+        "Register": [
+            "Register",
+            "kynWL",
+            "module"
+        ],
+        "Multiplexer": [
+            "Multiplexer",
+            "UxyT3",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ],
+        "Demux": [
+            "Demux",
+            "RxiHm",
+            "module"
+        ],
+        "ShiftRegister": [
+            "ShiftRegister",
+            "WB1J1",
+            "module"
+        ],
+        "BarrelShiftRegister": [
+            "BarrelShiftRegister",
+            "ts568",
+            "module"
+        ],
+        "Memory": [
+            "Memory",
+            "f0K8C",
+            "module"
+        ]
+    },
+    "MlibObjs": {},
+    "PEModules": [],
+    "PrevCompiledModules": {
+        "Register": {
+            "kynWL_d": {
+                "bytes": 8574,
+                "mod": "Register",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "kynWL_d.o"
+            }
+        },
+        "Multiplexer": {
+            "UxyT3_d": {
+                "bytes": 7263,
+                "mod": "Multiplexer",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "UxyT3_d.o"
+            }
+        },
+        "MagComp": {
+            "vaLRj_d": {
+                "bytes": 7666,
+                "mod": "MagComp",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "vaLRj_d.o"
+            }
+        },
+        "Memory": {
+            "f0K8C_d": {
+                "bytes": 11239,
+                "mod": "Memory",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "f0K8C_d.o"
+            }
+        },
+        "BarrelShiftRegister": {
+            "ts568_d": {
+                "bytes": 9824,
+                "mod": "BarrelShiftRegister",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "ts568_d.o"
+            }
+        },
+        "Adder": {
+            "xUt1z_d": {
+                "bytes": 9007,
+                "mod": "Adder",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "xUt1z_d.o"
+            }
+        },
+        "Decoder": {
+            "t8TcA_d": {
+                "bytes": 8584,
+                "mod": "Decoder",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "t8TcA_d.o"
+            }
+        },
+        "OffsetCheck": {
+            "uHZsk_d": {
+                "bytes": 11394,
+                "mod": "OffsetCheck",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "uHZsk_d.o"
+            }
+        },
+        "Mux2to1": {
+            "wxUbx_d": {
+                "bytes": 8055,
+                "mod": "Mux2to1",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "wxUbx_d.o"
+            }
+        },
+        "...MASTER...": {
+            "amcQw_d": {
+                "bytes": 11858,
+                "mod": "...MASTER...",
+                "out": "amcQw_d.o",
+                "mode": 4,
+                "archive": "archive.14/_26330_archive_1.a"
+            }
+        },
+        "Demux": {
+            "RxiHm_d": {
+                "bytes": 9506,
+                "mod": "Demux",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "RxiHm_d.o"
+            }
+        },
+        "ShiftRegister": {
+            "WB1J1_d": {
+                "bytes": 8931,
+                "mod": "ShiftRegister",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "WB1J1_d.o"
+            }
+        },
+        "std": {
+            "reYIK_d": {
+                "bytes": 34314,
+                "mod": "std",
+                "mode": 4,
+                "archive": "archive.14/_prev_archive_1.a",
+                "out": "reYIK_d.o"
+            }
+        },
+        "Receiver_tb": {
+            "pjg4r_d": {
+                "bytes": 47354,
+                "mod": "Receiver_tb",
+                "out": "pjg4r_d.o",
+                "mode": 4,
+                "archive": "archive.14/_26330_archive_1.a"
+            }
+        }
+    },
+    "CompileStrategy": "fullobj",
+    "LVLData": [
+        "SIM"
+    ],
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 92984
+    },
+    "CurCompileModules": [
+        "...MASTER...",
+        "Receiver_tb"
+    ],
+    "CompileProcesses": [
+        "cgproc.26330.json"
+    ],
+    "CurCompileUdps": {},
+    "Misc": {
+        "archive_dir": "archive.14",
+        "cwd": "/afs/ece.cmu.edu/usr/alhoffma/Private/18500/capstone",
+        "csrc": "csrc",
+        "csrc_abs": "/afs/ece.cmu.edu/usr/alhoffma/Private/18500/capstone/csrc",
+        "daidir_abs": "/afs/ece.cmu.edu/usr/alhoffma/Private/18500/capstone/simv.daidir",
+        "daidir": "simv.daidir",
+        "default_output_dir": "csrc"
+    },
+    "stat": {
+        "nMops": 2564
+    },
+    "CompileStatus": "Successful"
+}
