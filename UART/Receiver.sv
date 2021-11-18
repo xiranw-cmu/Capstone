@@ -44,7 +44,7 @@ module Receiver_wrapper
     end
     else if ( count == 2)
       isValid <= 1;
-    else if (count == 7)
+    else if (count == 8)
       clear <= 1;
     else if (isNew)
       en <= 0;

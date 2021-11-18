@@ -7,7 +7,7 @@ module Sender(
   input  logic clock, reset,
   output logic serialOut);
   
-  parameter WORDS = 2, WORD_SIZE = 27;
+  parameter WORDS = 3, WORD_SIZE = 27;
   logic [WORD_SIZE-1:0] message_rom [WORDS-1:0];
   logic [12:0] word_counter;
   logic [5:0] bit_counter;

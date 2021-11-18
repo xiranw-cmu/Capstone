@@ -13,12 +13,13 @@ module Receiver_tb();
 
   initial begin
       clock = 0;
-      forever #1 clock = ~clock;
+      forever #2 clock = ~clock;
   end
 
   initial begin
     clock2 = 0;
-    forever #10 clock2 = ~clock2;
+    #27;
+    forever #20 clock2 = ~clock2;
   end
 
   initial begin
@@ -27,7 +28,7 @@ module Receiver_tb();
       reset <= 1;
       @(posedge clock2);
       reset <= 0; 
-      #10000 $finish;
+      #3200 $finish;
   end
 
   always_comb begin
