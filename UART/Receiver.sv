@@ -38,7 +38,6 @@ module Receiver_wrapper
       en <= 0;
     end
     else if (edgeDetected) begin
-      $display("edge detected!\n");
       clear <= 1;
       en <= 1;
     end

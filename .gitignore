@@ -1,0 +1,5 @@
+.restartSimSession.tcl.old
+UART/simv
+UART/csrc/
+UART/simv.daidir/
+UART/ucli.key
