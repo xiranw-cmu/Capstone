@@ -3,3 +3,6 @@ UART/simv
 UART/csrc/
 UART/simv.daidir/
 UART/ucli.key
+UART/inter.vpd
+UART/DVEfiles/
+UART/.restartSimSession.tcl.old

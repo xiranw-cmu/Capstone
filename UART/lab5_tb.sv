@@ -28,7 +28,7 @@ module Receiver_tb();
       reset <= 1;
       @(posedge clock2);
       reset <= 0; 
-      #3200 $finish;
+      #5000 $finish;
   end
 
   always_comb begin

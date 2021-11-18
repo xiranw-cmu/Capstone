@@ -92,14 +92,14 @@ module Demux
 endmodule: Demux
 
 module Counter
-  #(parameter WIDTH=8)
+  #(parameter WIDTH=8, parameter START=0)
   (input logic [WIDTH - 1:0] D,
    input logic clock, en, clear, load, up,
    output logic [WIDTH - 1:0] Q);
 
   always_ff @(posedge clock)
     if (clear)
-      Q <= 0;
+      Q <= START;
     else if (load)
       Q <= D;
     else if (en)

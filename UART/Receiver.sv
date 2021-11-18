@@ -15,7 +15,7 @@ module Receiver_wrapper
   Receiver rec(.*);
   
   // counter/ sampler
-  Counter #(5) sampleCounter (.D(5'd0),
+  Counter #(5,1) sampleCounter (.D(5'd0),
                               .clock,
                               .en(en),
                               .clear,
@@ -41,9 +41,9 @@ module Receiver_wrapper
       clear <= 1;
       en <= 1;
     end
-    else if ( count == 2)
+    else if (count == 3)
       isValid <= 1;
-    else if (count == 8)
+    else if (count == 9)
       clear <= 1;
     else if (isNew)
       en <= 0;
@@ -64,7 +64,7 @@ module Receiver
   logic shiftErr;
 
   
-  Counter #(5) bitCounter(.D('0), 
+  Counter #(5,0) bitCounter(.D('0), 
                           .clock, 
                           .en, 
                           .clear(countClear), 
@@ -80,14 +80,14 @@ module Receiver
 
   /* Counter Status and Control Bits */
   assign countErr = isNew && (parallelOut[0]);
-  assign countClear = reset | (count == 'd21);
-  assign en = (((count == '0) && serialIn) || (count > '0 && count <= 'd21)) && isValid;
+  assign countClear = reset | (count == 'd22);
+  assign en = (((count == '0) && serialIn) || (count > '0 && count <= 'd22)) && isValid;
 
   /* Output logic */
   assign message = (countErr) ? 'h15 : parallelOut[20:1];
   always_ff @(posedge clock, posedge reset) begin
       if (reset) isNew <= 1'd0;
-      else isNew <= count == 5'd21;
+      else isNew <= count == 5'd22;
   end
     
 endmodule: Receiver
