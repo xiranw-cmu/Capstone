@@ -162,6 +162,23 @@ module SIPORegister
   
 endmodule: SIPORegister
 
+module PISORegister 
+  #(parameter  WIDTH = 8)
+  (input logic clock, reset, en, load,
+   input logic [WIDTH - 1:0] in,
+   output logic out);
+
+  logic [WIDTH - 1:0] Q;
+  assign out = Q[0];
+  
+  always_ff @(posedge clock, posedge reset) begin
+    if (reset) Q <= '0;
+    else if (load) Q <= in;
+    else if (en) Q <= Q >> 1;
+  end
+  
+endmodule: PISORegister
+
 module Memory
   #(parameter W = 256, AW = $clog2(W), DW = 16)
   (input logic [AW - 1:0] Addr,
