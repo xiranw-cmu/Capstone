@@ -7,7 +7,7 @@
 
 module Transmitter_wrapper 
   (input logic clock, reset, isNew,
-   input logic [19:0] message,
+   input logic [7:0] message,
    output logic serialOut, ready);
    
   logic clear, clearCount, sample;
@@ -26,12 +26,13 @@ module Transmitter_wrapper
   assign clearCount = clear | isNew;
   
   always_ff @(posedge clock, posedge reset) begin
-    clear <= 0;
     if (reset) begin
       clear <= 1;
     end
     else if (count == 8) // might need to change
       clear <= 1;
+    else
+      clear <= 0;
   end
      
 endmodule: Transmitter_wrapper
@@ -39,14 +40,14 @@ endmodule: Transmitter_wrapper
 // handles serial input to parallel output
 module Transmitter 
   (input logic clock, reset, isNew, sample,
-   input logic [19:0] message,
+   input logic [7:0] message,
    output logic serialOut, ready);
 
-  logic en;  
-  logic [4:0] count;
+  logic en, out;  
+  logic [3:0] count;
   logic countClear; 
   
-  Counter #(5,0) bitCounter(.D('0), 
+  Counter #(4,0) bitCounter(.D('0), 
                           .clock, 
                           .en, 
                           .clear(countClear), 
@@ -54,15 +55,16 @@ module Transmitter
                           .up(1'd1), 
                           .Q(count));
   
-  PISORegister #(22) shiftReg(.clock, 
+  PISORegister #(10) shiftReg(.clock, 
                               .reset, 
                               .en,
                               .load(isNew),
                               .in({1'b1, message, 1'b0}),
-                              .out(serialOut));
+                              .out(out));
 
+	assign serialOut = ready ? 1'b1 : out;				
   /* Counter Status and Control Bits */
-  assign countClear = reset | ((count == 'd21) && sample);
+  assign countClear = reset | ((count == 'd9) && sample);
 
   enum logic [1:0] {WAIT, FIRSTBIT, BODY} state, nextState;
   always_ff @(posedge clock, posedge reset)
@@ -84,7 +86,7 @@ module Transmitter
         en = sample;
       end
       BODY: begin
-        nextState = (count == 'd21) && sample ? WAIT : BODY;
+        nextState = (count == 'd9) && sample ? WAIT : BODY;
         en = sample;
       end
     endcase

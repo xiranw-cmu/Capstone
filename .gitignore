@@ -6,3 +6,9 @@ UART/ucli.key
 UART/inter.vpd
 UART/DVEfiles/
 UART/.restartSimSession.tcl.old
+UART/db
+UART/greybox_tmp
+UART/incremental_db
+UART/output_files
+*.bak
+*.stp

@@ -149,6 +149,7 @@ module BarrelShiftRegister
 
 endmodule: BarrelShiftRegister
 
+// LSB to MSB
 module SIPORegister 
   #(parameter  WIDTH = 8)
   (input logic clock, reset, en,
@@ -157,8 +158,9 @@ module SIPORegister
   
   always_ff @(posedge clock, posedge reset) begin
     if (reset) out <= '0;
-    else if (en) out <= (out << 1) | in;
+    else if (en) out <= (out >> 1) | (in << (WIDTH - 1));
   end
+
   
 endmodule: SIPORegister
 

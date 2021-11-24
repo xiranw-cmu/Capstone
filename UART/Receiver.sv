@@ -8,7 +8,7 @@
 module Receiver_wrapper 
   (input logic clock, reset, serialIn,
    output logic isNew,
-   output logic [19:0] message);
+   output logic [7:0] message);
    
   logic isValid, clear, serialSync, edgeDetected, tempSync, en;
   logic [4:0] count; 
@@ -30,8 +30,6 @@ module Receiver_wrapper
   assign edgeDetected = tempSync ^ serialSync;
   
   always_ff @(posedge clock, posedge reset) begin
-    clear <= 0;
-    isValid <= 0;
     if (reset) begin
       clear <= 1;
       isValid <= 0;
@@ -41,30 +39,41 @@ module Receiver_wrapper
       clear <= 1;
       en <= 1;
     end
-    else if (count == 3)
+    else if (count == 3) begin
       isValid <= 1;
-    else if (count == 9)
-      clear <= 1;
-    else if (isNew)
-      en <= 0;
+      clear <= 0;
     end
+    else if (count == 9) begin
+      clear <= 1;
+      isValid <= 0;
+    end
+    else if (isNew) begin
+      en <= 0;
+      clear <= 0;
+      isValid <= 0;
+    end
+    else begin
+      clear <= 0;
+      isValid <= 0;
+    end
+  end
      
 endmodule: Receiver_wrapper
 
 // handles serial input to parallel output
 module Receiver 
   (input logic clock, reset, serialIn, isValid,
-   output logic [19:0] message,
+   output logic [7:0] message,
    output logic isNew);
 
   logic en;  
-  logic [4:0] count;
+  logic [3:0] count;
   logic countClear, countErr;
-  logic [21:0] parallelOut;
+  logic [9:0] parallelOut;
   logic shiftErr;
 
   
-  Counter #(5,0) bitCounter(.D('0), 
+  Counter #(4,0) bitCounter(.D('0), 
                           .clock, 
                           .en, 
                           .clear(countClear), 
@@ -72,22 +81,23 @@ module Receiver
                           .up(1'd1), 
                           .Q(count));
   
-  SIPORegister #(22) shiftReg(.clock, 
+  // changing register so that it's sent LSB-> MSB
+  SIPORegister #(10) shiftReg(.clock,
                               .reset, 
                               .en,
                               .in(serialIn),
                               .out(parallelOut));
 
   /* Counter Status and Control Bits */
-  assign countErr = isNew && (parallelOut[0]);
-  assign countClear = reset | (count == 'd22);
-  assign en = (((count == '0) && serialIn) || (count > '0 && count <= 'd22)) && isValid;
+  // assign countErr = isNew && (parallelOut[0]);
+  assign countClear = reset | (count == 'd10);
+  assign en = (((count == '0) && !serialIn) || (count > '0 && count <= 'd10)) && isValid;
 
   /* Output logic */
-  assign message = (countErr) ? 'h15 : parallelOut[20:1];
+  assign message = parallelOut[8:1];
   always_ff @(posedge clock, posedge reset) begin
       if (reset) isNew <= 1'd0;
-      else isNew <= count == 5'd22;
+      else isNew <= count == 5'd10;
   end
     
 endmodule: Receiver

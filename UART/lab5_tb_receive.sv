@@ -9,7 +9,7 @@ module Receiver_tb();
 
   logic clock, reset, clock2;
   logic serial, isNew, isValid;
-  logic [19:0] message;
+  logic [7:0] message;
 
   initial begin
       clock = 0;
