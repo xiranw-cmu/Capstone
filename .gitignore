@@ -12,3 +12,4 @@ UART/incremental_db
 UART/output_files
 *.bak
 *.stp
+UART/.restartSimSession.tcl.old

@@ -9,7 +9,7 @@ module Transmitter_tb();
 
   logic clock, reset, clock2, ready, serialOut;
   logic serial, isNew, isValid;
-  logic [19:0] message;
+  logic [7:0] message;
 
   initial begin
       clock = 0;
@@ -28,7 +28,7 @@ module Transmitter_tb();
       reset <= 1;
       @(posedge clock);
       reset <= 0;
-      message <= 20'b10100011000101001111;
+      message <= 8'b11000110;
       isNew <= 1'b1;
       @(posedge clock);
       isNew <= 1'b0;
@@ -41,7 +41,7 @@ module Transmitter_tb();
   initial begin
     $monitor($time,,"serial: %b ready: %b reset: %b\n", serialOut, ready, reset);
   end
-  Transmitter_wrapper rec(.*);
+  Transmitter_wrapper trans(.*);
 
   // Sender sen(.serialOut(serial), .clock(clock2), .*);
     

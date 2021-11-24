@@ -171,12 +171,12 @@ module PISORegister
    output logic out);
 
   logic [WIDTH - 1:0] Q;
-  assign out = Q[WIDTH-1];
+  assign out = Q[0];
   
   always_ff @(posedge clock, posedge reset) begin
     if (reset) Q <= '0;
     else if (load) Q <= in;
-    else if (en) Q <= Q << 1;
+    else if (en) Q <= Q >> 1;
   end
   
 endmodule: PISORegister
