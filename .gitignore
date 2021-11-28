@@ -13,3 +13,7 @@ UART/output_files
 *.bak
 *.stp
 UART/.restartSimSession.tcl.old
+UART/uart/x64
+UART/uart/uart
+UART/uart/.vs
+
