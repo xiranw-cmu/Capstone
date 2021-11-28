@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "36ade84a-0876-4afd-b411-2c6814ab5d19": {
+      "ProjectGuid": "36ade84a-0876-4afd-b411-2c6814ab5d19",
+      "DisplayName": "uart",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

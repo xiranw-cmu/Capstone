@@ -87,6 +87,7 @@ module Transmitter
       end
       BODY: begin
         nextState = (count == 'd9) && sample ? WAIT : BODY;
+		  ready = (count == 'd9) && sample ? 1 : 0;
         en = sample;
       end
     endcase

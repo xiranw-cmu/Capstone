@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\aliho\OneDrive\Documents\cmu\f21\capstone\capstone\UART\uart\main.cpp(37,46): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
+  uart.vcxproj -> C:\Users\aliho\OneDrive\Documents\cmu\f21\capstone\capstone\UART\uart\x64\Debug\uart.exe
