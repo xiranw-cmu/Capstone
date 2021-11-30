@@ -1257,7 +1257,6 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LE
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=16384" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=16384" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_RAM_PIPELINE=3" -section_id auto_signaltap_0
-set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name QIP_FILE PLL.qip
 set_global_assignment -name VERILOG_FILE PLL.v
@@ -1269,3 +1268,4 @@ set_global_assignment -name SYSTEMVERILOG_FILE library.sv
 set_global_assignment -name SYSTEMVERILOG_FILE chipInterface.sv
 set_global_assignment -name SIGNALTAP_FILE output_files/stp2.stp
 set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp

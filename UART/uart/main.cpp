@@ -19,7 +19,7 @@ wchar_t COMPORT_Tx[] = L"COM8";						// COM port used for Rx (use L"COM6" for tr
 // Communication variables and parameters
 HANDLE hComRx;										// Pointer to the selected COM port (Receiver)
 HANDLE hComTx;										// Pointer to the selected COM port (Transmitter)
-int nComRate = 1024000;					// Baud (Bit) rate in bits/second 
+int nComRate = 512000;					// Baud (Bit) rate in bits/second 
 int nComBits = 8;									// Number of bits per frame
 COMMTIMEOUTS timeout;								// A commtimeout struct variable
 
