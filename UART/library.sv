@@ -153,7 +153,7 @@ endmodule: BarrelShiftRegister
 module SIPORegister 
   #(parameter  WIDTH = 8)
   (input logic clock, reset, en,
-   input logic in,
+   input logic [X-1:0] in,
    output logic [WIDTH - 1:0] out);
   
   always_ff @(posedge clock, posedge reset) begin

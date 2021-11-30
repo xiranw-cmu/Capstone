@@ -7,7 +7,7 @@
 
 module Transmitter_wrapper 
   (input logic clock, reset, isNew,
-   input logic [7:0] message,
+   input logic [19:0] message,
    output logic serialOut, ready);
    
   logic clear, clearCount, sample;
@@ -40,14 +40,14 @@ endmodule: Transmitter_wrapper
 // handles serial input to parallel output
 module Transmitter 
   (input logic clock, reset, isNew, sample,
-   input logic [7:0] message,
+   input logic [19:0] message,
    output logic serialOut, ready);
 
   logic en, out;  
-  logic [3:0] count;
+  logic [4:0] count;
   logic countClear; 
   
-  Counter #(4,0) bitCounter(.D('0), 
+  Counter #(5,0) bitCounter(.D('0), 
                           .clock, 
                           .en, 
                           .clear(countClear), 
@@ -55,16 +55,18 @@ module Transmitter
                           .up(1'd1), 
                           .Q(count));
   
-  PISORegister #(10) shiftReg(.clock, 
+  PISORegister #(30) shiftReg(.clock, 
                               .reset, 
                               .en,
                               .load(isNew),
-                              .in({1'b1, message, 1'b0}),
+                              .in({1'b1, message[3:0], 4'b0, 1'b0, // LSB sends last
+                                   1'b1, message[10:4],      1'b0, 
+                                   1'b1, message[19:11],     1'b0}), // MSB sends first
                               .out(out));
 
 	assign serialOut = ready ? 1'b1 : out;				
   /* Counter Status and Control Bits */
-  assign countClear = reset | ((count == 'd9) && sample);
+  assign countClear = reset | ((count == 'd29) && sample);
 
   enum logic [1:0] {WAIT, FIRSTBIT, BODY} state, nextState;
   always_ff @(posedge clock, posedge reset)
@@ -86,8 +88,8 @@ module Transmitter
         en = sample;
       end
       BODY: begin
-        nextState = (count == 'd9) && sample ? WAIT : BODY;
-		  ready = (count == 'd9) && sample ? 1 : 0;
+        nextState = (count == 'd29) && sample ? WAIT : BODY;
+		  ready = (count == 'd29) && sample ? 1 : 0;
         en = sample;
       end
     endcase

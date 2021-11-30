@@ -48,15 +48,16 @@ endmodule: Decoder
 module Register_file
     (input  logic 		 clock, reset_n, 
      input  logic		 rd_we,
-     input  logic [3:0]  rd, rs1, rs2,
+     input  logic [3:0]  rd, rs1, rs2, ro, // ro stands for read only
      input  logic [15:0] rd_data,
-     output logic [15:0] rs1_data, rs2_data);
+     output logic [15:0] rs1_data, rs2_data, ro_data);
 
     logic [15:0][15:0] registers;
 
     // Async read
     assign rs1_data = registers[rs1];
     assign rs2_data = registers[rs2];
+    assign ro_data = registers[ro];
 
     // Sync write
     always_ff @(posedge clock, negedge reset_n) begin
@@ -93,15 +94,21 @@ endmodule: ALU
 
 
 module Core
-    (input logic 		clock, reset_n,
-     input logic 	    instr_valid,
-     input logic [15:0] instr);
+    (input  logic 		clock, reset_n,
+     input  logic 	    instr_valid,
+     input  logic [15:0] instr,
+     output logic [19:0] reg_dump);
 
     logic is_src2_imm, rd_we;
-    logic [3:0] opcode, rd, rs1, src2;
-    logic [15:0] rd_data, rs1_data, rs2_data;
+    logic [3:0] opcode, rd, rs1, src2, ro;
+    logic [15:0] rd_data, rs1_data, rs2_data, ro_data;
     logic [15:0] se_immediate, alu_src2;
 
+    // saves data to be sent for next cycle
+    assign reg_dump = {ro_data, ro};
+    always_ff @(posedge clock)
+        ro <= rd;
+    
     // Sign extend src2
     assign se_immediate = {{12{src2[3]}}, src2};
     
@@ -115,9 +122,9 @@ module Core
     
     Register_file rf (.clock(clock), .reset_n(reset_n),
                       .rd_we(rd_we), 
-                      .rd(rd), .rs1(rs1), .rs2(src2),
+                      .rd(rd), .rs1(rs1), .rs2(src2), .ro(ro),
                       .rd_data(rd_data), 
-                      .rs1_data(rs1_data), .rs2_data(rs2_data));
+                      .rs1_data(rs1_data), .rs2_data(rs2_data), .ro_data(ro_data));
     
     ALU alu (.opcode(opcode),
              .alu_src1(rs1_data), .alu_src2(alu_src2),
@@ -131,6 +138,7 @@ module TB();
     logic clock, reset_n;
     logic instr_valid;
     logic [15:0] instr;
+    logic [19:0] reg_dump;
 
     // For file reading and writing
     string test_case_file;

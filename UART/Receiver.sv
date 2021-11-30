@@ -8,7 +8,7 @@
 module Receiver_wrapper 
   (input logic clock, reset, serialIn,
    output logic isNew,
-   output logic [7:0] message);
+   output logic [15:0] message);
    
   logic isValid, clear, serialSync, edgeDetected, tempSync, en;
   logic [4:0] count; 
@@ -63,17 +63,17 @@ endmodule: Receiver_wrapper
 // handles serial input to parallel output
 module Receiver 
   (input logic clock, reset, serialIn, isValid,
-   output logic [7:0] message,
+   output logic [15:0] message,
    output logic isNew);
 
   logic en;  
-  logic [3:0] count;
+  logic [4:0] count;
   logic countClear, countErr;
-  logic [9:0] parallelOut;
+  logic [29:0] parallelOut;
   logic shiftErr;
 
   
-  Counter #(4,0) bitCounter(.D('0), 
+  Counter #(5,0) bitCounter(.D('0), 
                           .clock, 
                           .en, 
                           .clear(countClear), 
@@ -82,22 +82,22 @@ module Receiver
                           .Q(count));
   
   // changing register so that it's sent LSB-> MSB
-  SIPORegister #(10) shiftReg(.clock,
+  // assuming data is sent without pauses --a li needs to check this on signal tap
+  SIPORegister #(30) shiftReg(.clock,
                               .reset, 
                               .en,
                               .in(serialIn),
                               .out(parallelOut));
 
   /* Counter Status and Control Bits */
-  // assign countErr = isNew && (parallelOut[0]);
-  assign countClear = reset | (count == 'd10);
-  assign en = (((count == '0) && !serialIn) || (count > '0 && count <= 'd10)) && isValid;
+  assign countClear = reset | (count == 'd30);
+  assign en = (((count == '0) && !serialIn) || (count > '0 && count <= 'd30)) && isValid;
 
   /* Output logic */
-  assign message = parallelOut[8:1];
+  assign message = {parallelOut[28:21], parallelOut[18:11]};
   always_ff @(posedge clock, posedge reset) begin
       if (reset) isNew <= 1'd0;
-      else isNew <= count == 5'd10;
+      else isNew <= count == 5'd30;
   end
     
 endmodule: Receiver

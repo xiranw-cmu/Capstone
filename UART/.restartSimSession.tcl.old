@@ -1,15 +1,15 @@
 # Begin_DVE_Session_Save_Info
 # DVE restart session
-# Saved on Sun Nov 21 14:51:35 2021
+# Saved on Wed Nov 24 09:38:08 2021
 # Designs open: 1
 #   Sim: /afs/ece.cmu.edu/usr/alhoffma/Private/18500/capstone/UART/simv
 # Toplevel windows open: 2
 # 	TopLevel.1
 # 	TopLevel.2
-#   Source.1: Transmitter_tb
-#   Wave.1: 9 signals
+#   Source.1: Receiver_tb
+#   Wave.1: 19 signals
 #   Group count = 1
-#   Group Group1 signal count = 9
+#   Group Group1 signal count = 19
 # End_DVE_Session_Save_Info
 
 # DVE version: J-2014.12-SP3-1_Full64
@@ -59,7 +59,7 @@ gui_sync_global -id ${TopLevel.2} -option true
 
 # MDI window settings
 set Wave.1 Wave.1
-gui_update_layout -id ${Wave.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_wave_left 427} {child_wave_right 1043} {child_wave_colname 211} {child_wave_colvalue 212} {child_wave_col1 0} {child_wave_col2 1}}
+gui_update_layout -id ${Wave.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_wave_left 427} {child_wave_right 1043} {child_wave_colname 211} {child_wave_colvalue 211} {child_wave_col1 0} {child_wave_col2 1}}
 
 # End MDI window settings
 
@@ -86,21 +86,15 @@ gui_set_time_units 1s
 # Global: Signal Compare
 
 # Global: Signal Groups
-gui_load_child_values {Transmitter_tb}
-gui_load_child_values {Transmitter_tb.rec}
+gui_load_child_values {Receiver_tb.rec}
+gui_load_child_values {Receiver_tb}
 
 
-set _session_group_6 Group1
-gui_sg_create "$_session_group_6"
-set Group1 "$_session_group_6"
+set _session_group_1 Group1
+gui_sg_create "$_session_group_1"
+set Group1 "$_session_group_1"
 
-gui_sg_addsignal -group "$_session_group_6" { Transmitter_tb.clock Transmitter_tb.reset Transmitter_tb.ready Transmitter_tb.serialOut Transmitter_tb.isNew Transmitter_tb.message Transmitter_tb.rec.count Transmitter_tb.rec.transmit.count Transmitter_tb.rec.transmit.sample }
-gui_set_radix -radix {binary} -signals {Sim:Transmitter_tb.message}
-gui_set_radix -radix {unsigned} -signals {Sim:Transmitter_tb.message}
-gui_set_radix -radix {decimal} -signals {Sim:Transmitter_tb.rec.count}
-gui_set_radix -radix {unsigned} -signals {Sim:Transmitter_tb.rec.count}
-gui_set_radix -radix {decimal} -signals {Sim:Transmitter_tb.rec.transmit.count}
-gui_set_radix -radix {unsigned} -signals {Sim:Transmitter_tb.rec.transmit.count}
+gui_sg_addsignal -group "$_session_group_1" { Receiver_tb.clock Receiver_tb.reset Receiver_tb.clock2 Receiver_tb.serial Receiver_tb.isNew Receiver_tb.isValid Receiver_tb.message Receiver_tb.rec.clock Receiver_tb.rec.reset Receiver_tb.rec.serialIn Receiver_tb.rec.isNew Receiver_tb.rec.message Receiver_tb.rec.isValid Receiver_tb.rec.clear Receiver_tb.rec.serialSync Receiver_tb.rec.edgeDetected Receiver_tb.rec.tempSync Receiver_tb.rec.en Receiver_tb.rec.count }
 
 # Global: Highlighting
 
@@ -129,27 +123,26 @@ gui_show_window -window ${Hier.1}
 gui_list_set_filter -id ${Hier.1} -list { {Package 1} {All 0} {Process 1} {VirtPowSwitch 0} {UnnamedProcess 1} {UDP 0} {Function 1} {Block 1} {SrsnAndSpaCell 0} {OVA Unit 1} {LeafScCell 1} {LeafVlgCell 1} {Interface 1} {LeafVhdCell 1} {$unit 1} {NamedBlock 1} {Task 1} {VlgPackage 1} {ClassDef 1} {VirtIsoCell 0} }
 gui_list_set_filter -id ${Hier.1} -text {*}
 gui_change_design -id ${Hier.1} -design Sim
-catch {gui_list_expand -id ${Hier.1} Transmitter_tb}
-catch {gui_list_expand -id ${Hier.1} Transmitter_tb.rec}
-catch {gui_list_select -id ${Hier.1} {Transmitter_tb.rec.transmit}}
-gui_view_scroll -id ${Hier.1} -vertical -set 62
+catch {gui_list_expand -id ${Hier.1} Receiver_tb}
+catch {gui_list_select -id ${Hier.1} {Receiver_tb.rec}}
+gui_view_scroll -id ${Hier.1} -vertical -set 0
 gui_view_scroll -id ${Hier.1} -horizontal -set 0
 
 # Data 'Data.1'
 gui_list_set_filter -id ${Data.1} -list { {Buffer 1} {Input 1} {Others 1} {Linkage 1} {Output 1} {LowPower 1} {Parameter 1} {All 1} {Aggregate 1} {LibBaseMember 1} {Event 1} {Assertion 1} {Constant 1} {Interface 1} {BaseMembers 1} {Signal 1} {$unit 1} {Inout 1} {Variable 1} }
 gui_list_set_filter -id ${Data.1} -text {*}
-gui_list_show_data -id ${Data.1} {Transmitter_tb.rec.transmit}
+gui_list_show_data -id ${Data.1} {Receiver_tb.rec}
 gui_show_window -window ${Data.1}
-catch { gui_list_select -id ${Data.1} {Transmitter_tb.rec.transmit.sample }}
+catch { gui_list_select -id ${Data.1} {Receiver_tb.rec.clock Receiver_tb.rec.reset Receiver_tb.rec.serialIn Receiver_tb.rec.isNew Receiver_tb.rec.message Receiver_tb.rec.isValid Receiver_tb.rec.clear Receiver_tb.rec.serialSync Receiver_tb.rec.edgeDetected Receiver_tb.rec.tempSync Receiver_tb.rec.en Receiver_tb.rec.count }}
 gui_view_scroll -id ${Data.1} -vertical -set 0
 gui_view_scroll -id ${Data.1} -horizontal -set 0
-gui_view_scroll -id ${Hier.1} -vertical -set 62
+gui_view_scroll -id ${Hier.1} -vertical -set 0
 gui_view_scroll -id ${Hier.1} -horizontal -set 0
 
 # Source 'Source.1'
 gui_src_value_annotate -id ${Source.1} -switch false
 gui_set_env TOGGLE::VALUEANNOTATE 0
-gui_open_source -id ${Source.1}  -replace -active Transmitter_tb /afs/ece.cmu.edu/usr/alhoffma/Private/18500/capstone/UART/lab5_tb_transmit.sv
+gui_open_source -id ${Source.1}  -replace -active Receiver_tb /afs/ece.cmu.edu/usr/alhoffma/Private/18500/capstone/UART/lab5_tb_receive.sv
 gui_view_scroll -id ${Source.1} -vertical -set 105
 gui_src_set_reusable -id ${Source.1}
 
@@ -161,9 +154,8 @@ set origWaveHeight [gui_get_pref_value -category Wave -key waveRowHeight]
 gui_list_set_height -id Wave -height 25
 set origGroupCreationState [gui_list_create_group_when_add -wave]
 gui_list_create_group_when_add -wave -disable
-gui_wv_zoom_timerange -id ${Wave.1} 882 905
+gui_wv_zoom_timerange -id ${Wave.1} 0 5087
 gui_list_add_group -id ${Wave.1} -after {New Group} {Group1}
-gui_list_select -id ${Wave.1} {Transmitter_tb.rec.transmit.count }
 gui_seek_criteria -id ${Wave.1} {Any Edge}
 
 
