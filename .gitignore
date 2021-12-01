@@ -18,3 +18,7 @@ UART/uart/uart
 UART/uart/.vs
 
 UART/uart/uart/uart.cpp
+UART/chipInterface.qws
+.gitignore
+UART/chipInterface.qsf
+.gitignore

@@ -13,8 +13,8 @@
 
 // Declare constants, variables and communication parameters
 const int BUFSIZE = 140;							// Buffer size
-wchar_t COMPORT_Rx[] = L"COM8";						// COM port used for Rx (use L"COM6" for transmit program)
-wchar_t COMPORT_Tx[] = L"COM8";						// COM port used for Rx (use L"COM6" for transmit program)
+wchar_t COMPORT_Rx[] = L"COM7";						// COM port used for Rx (use L"COM6" for transmit program)
+wchar_t COMPORT_Tx[] = L"COM7";						// COM port used for Rx (use L"COM6" for transmit program)
 
 // Communication variables and parameters
 HANDLE hComRx;										// Pointer to the selected COM port (Receiver)
@@ -33,7 +33,7 @@ int main() {
 	//Sleep(500);
 
 	// Transmit side 
-	char msgOut[] = "HeLlo Ali How are you";		// Sent message	
+	char msgOut[] = "CaGtDRogE";		// Sent message	0x48 (0100_1000), 0x65 (0110_0101)
 	outputToPort(&hComRx, msgOut, strlen(msgOut));			// Send string to port - include space for '\0' termination
 	Sleep(50);													// Allow time for signal propagation on cable 
 
@@ -43,7 +43,7 @@ int main() {
 	bytesRead = inputFromPort(&hComRx, msgIn, BUFSIZE);			// Receive string from port
 	printf("Length of received msg = %d", bytesRead);
 	msgIn[bytesRead] = '\0';
-	printf("\nMessage Received: %x %x %x %x %x %s\n\n", msgIn[0], msgIn[1], msgIn[2], msgIn[3], msgIn[4], msgIn);				// Display message from port
+	printf("\nMessage Received: %x %x %x %s\n", msgIn[0], msgIn[1], msgIn[2], msgIn);				// Display message from port
 	
 	// Tear down both sides of the comm link
 	purgePort(&hComRx);											// Purge the Rx port

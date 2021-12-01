@@ -24,16 +24,17 @@ module Transmitter_wrapper
                               .Q(count));
   assign sample = clear;
   assign clearCount = clear | isNew;
+  assign clear = count == 9;
   
-  always_ff @(posedge clock, posedge reset) begin
-    if (reset) begin
-      clear <= 1;
-    end
-    else if (count == 8) // might need to change
-      clear <= 1;
-    else
-      clear <= 0;
-  end
+  // always_ff @(posedge clock, posedge reset) begin
+  //   if (reset) begin
+  //     clear <= 1;
+  //   end
+  //   else if (count == 8) // might need to change
+  //     clear <= 1;
+  //   else
+  //     clear <= 0;
+  // end
      
 endmodule: Transmitter_wrapper
 
@@ -60,8 +61,8 @@ module Transmitter
                               .en,
                               .load(isNew),
                               .in({1'b1, message[3:0], 4'b0, 1'b0, // LSB sends last
-                                   1'b1, message[10:4],      1'b0, 
-                                   1'b1, message[19:11],     1'b0}), // MSB sends first
+                                   1'b1, message[11:4],      1'b0, 
+                                   1'b1, message[19:12],     1'b0}), // MSB sends first
                               .out(out));
 
 	assign serialOut = ready ? 1'b1 : out;				
@@ -89,7 +90,7 @@ module Transmitter
       end
       BODY: begin
         nextState = (count == 'd29) && sample ? WAIT : BODY;
-		  ready = (count == 'd29) && sample ? 1 : 0;
+		    ready = (count == 'd29) && sample ? 1 : 0;
         en = sample;
       end
     endcase
