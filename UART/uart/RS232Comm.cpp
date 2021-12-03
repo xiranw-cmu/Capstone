@@ -42,8 +42,8 @@ void outputToPort(HANDLE* hCom, LPCVOID buf, DWORD szBuf) {
 		printf("\nWrite Error: 0x%x\n", GetLastError());
 		ClearCommError(hCom, lpErrors, lpStat);		// Clears the device error flag to enable additional input and output operations. Retrieves information ofthe communications error.	
 	}
-	else
-		printf("\nSuccessful transmission, there were %ld bytes transmitted\n", NumberofBytesTransmitted);
+	else;
+		//printf("\nSuccessful transmission, there were %ld bytes transmitted\n", NumberofBytesTransmitted);
 }
 
 DWORD inputFromPort(HANDLE* hCom, LPVOID buf, DWORD szBuf) {
@@ -64,8 +64,8 @@ DWORD inputFromPort(HANDLE* hCom, LPVOID buf, DWORD szBuf) {
 		printf("\nRead Error: 0x%x\n", GetLastError());
 		ClearCommError(hCom, lpErrors, lpStat);		// Clears the device error flag to enable additional input and output operations. Retrieves information ofthe communications error.
 	}
-	else
-		printf("\nSuccessful reception!, There were %ld bytes read\n", NumberofBytesRead);
+	else;
+		//printf("\nSuccessful reception!, There were %ld bytes read\n", NumberofBytesRead);
 
 	return(NumberofBytesRead);
 }
