@@ -41,25 +41,35 @@ int main() {
 																																																																			//char msgOut[] = "Hi Ei OO ";
 	auto start = high_resolution_clock::now();
 	int count = 0;
+	// initialize file I/O
+
+	// figure out how many lines
 	for (int i = 0; i < 200; i++) {
 		count++;
-		auto init = high_resolution_clock::now();
-		if (i % 2 == 0)
-			outputToPort(&hComRx, msgOut1, strlen(msgOut1));			// Send string to port - include space for '\0' termination
-		else
-			outputToPort(&hComRx, msgOut2, strlen(msgOut2));
-		auto middle = high_resolution_clock::now();
-		auto dur = duration_cast<microseconds>(middle - init);
+		// auto init = high_resolution_clock::now();
+		// if (i % 2 == 0)
+		// 	outputToPort(&hComRx, msgOut1, strlen(msgOut1));			// Send string to port - include space for '\0' termination
+		// else
+		// 	outputToPort(&hComRx, msgOut2, strlen(msgOut2));
+		char msg [] = readline();
+		// convert hex -> ascii & add 1 extra character
+		outputToPort(&hComRx, msg, strlen(msg));
+		
+		// auto middle = high_resolution_clock::now();
+		// auto dur = duration_cast<microseconds>(middle - init);
 		//printf("time to output: %d\n", dur);
 		//Sleep(500);													// Allow time for signal propagation on cable 
 
 		// Receive side  
 		char msgIn[BUFSIZE];
 		DWORD bytesRead;
-		init = high_resolution_clock::now();
-		//bytesRead = inputFromPort(&hComRx, msgIn, BUFSIZE);			// Receive string from port
-		auto end = high_resolution_clock::now();
-		dur = duration_cast<microseconds>(end - init);
+		// init = high_resolution_clock::now();
+		bytesRead = inputFromPort(&hComRx, msgIn, BUFSIZE);			// Receive string from port
+		// string is in msgIn
+		// convert ascii to hex, and then discard the last hex character
+		// shove into text file
+		// auto end = high_resolution_clock::now();
+		// dur = duration_cast<microseconds>(end - init);
 		//printf("time to input: %d count: %d\n", dur, count);
 																	//printf("Length of received msg = %d", bytesRead);
 		//msgIn[bytesRead] = '\0';
