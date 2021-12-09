@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import time
 import serial
+import sys
 import os
 
 ser = serial.Serial(
@@ -15,10 +16,10 @@ file_name = ''
 if (len(sys.argv) < 2):
         file_name = "test_case.txt"
 else:
-        file_name = sys.argv[2]
+        file_name = sys.argv[1]
 with open(file_name) as test_fd:
-        test_cases = test_fd.splitlines()
-        os.system('python serial_read.py %d', len(test_cases))
+        test_cases = test_fd.readlines()
+        os.system(f'python serial_read.py {len(test_cases)}')
         for i in range(len(test_cases)):
-                test = bytes.fromhex(f"{test_cases[i]}00")
-                ser.write(test)
+                test = bytes.fromhex(f"{test_cases[i][0:4]}00")
+                # ser.write(test)
