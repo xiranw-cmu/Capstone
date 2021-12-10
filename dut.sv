@@ -47,7 +47,7 @@ endmodule: Decoder
 
 module Register_file
     (input  logic 		 clock, reset_n, 
-     input  logic		 rd_we,
+     input  logic		    rd_we,
      input  logic [3:0]  rd, rs1, rs2, ro, // ro stands for read only
      input  logic [15:0] rd_data,
      output logic [15:0] rs1_data, rs2_data, ro_data);
@@ -97,7 +97,8 @@ module Core
     (input  logic 		clock, reset_n,
      input  logic 	    instr_valid,
      input  logic [15:0] instr,
-     output logic [19:0] reg_dump);
+     output logic [19:0] reg_dump,
+	  output logic 		 isNew_t);
 
     logic is_src2_imm, rd_we;
     logic [3:0] opcode, rd, rs1, src2, ro;
@@ -106,8 +107,10 @@ module Core
 
     // saves data to be sent for next cycle
     assign reg_dump = {ro_data, ro};
-    always_ff @(posedge clock)
+    always_ff @(posedge clock) begin
         ro <= rd;
+		  isNew_t <= instr_valid;
+	 end
     
     // Sign extend src2
     assign se_immediate = {{12{src2[3]}}, src2};
@@ -132,7 +135,7 @@ module Core
 
 endmodule: Core
 
-
+/*
 module TB();
     // For DUT
     logic clock, reset_n;
@@ -154,11 +157,11 @@ module TB();
     end
 
     initial begin
-        /* Check test case file argument is supplied */
+        // Check test case file argument is supplied
         if (!$value$plusargs("TEST=%s", test_case_file)) 
             $display("Usage: ./simv +TEST=<test case file>");
 
-        /* Open test case file and output file */
+        // Open test case file and output file 
         test_fd = $fopen(test_case_file, "r");
         if (!test_fd)
             $fatal("Error: Failed to open file %s\n", test_case_file);
@@ -166,7 +169,7 @@ module TB();
         if (!output_fd)
             $fatal("Error: Failed to open file sim_output.txt\n");
         
-        /* Process test case file line by line */
+        // Process test case file line by line
         while (!$feof(test_fd)) begin
             $fscanf(test_fd, "%h\n", file_instr);
 
@@ -201,10 +204,11 @@ module TB();
 
         $display("DUT simulation finished. Output in sim_output.txt");
         
-        /* Clean up */
+        // Clean up 
         $fclose(test_fd);
         $fclose(output_fd);
         $finish;
     end
 
 endmodule
+*/

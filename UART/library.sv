@@ -44,19 +44,19 @@ module Mux2to1
   
 endmodule : Mux2to1
 
-module Decoder
-  #(parameter WIDTH=8)
-  (input  logic [$clog2(WIDTH)-1:0] I,
-   input  logic                     en,
-   output logic [WIDTH-1:0]         D);
-   
-  always_comb begin
-    D = 0;
-    if (en)
-      D = 1'b1 << I;
-  end
-  
-endmodule : Decoder
+//module Decoder
+//  #(parameter WIDTH=8)
+//  (input  logic [$clog2(WIDTH)-1:0] I,
+//   input  logic                     en,
+//   output logic [WIDTH-1:0]         D);
+//   
+//  always_comb begin
+//    D = 0;
+//    if (en)
+//      D = 1'b1 << I;
+//  end
+//  
+//endmodule : Decoder
 
 module Register
   #(parameter WIDTH=8)
