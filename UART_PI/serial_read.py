@@ -14,15 +14,19 @@ ser = serial.Serial(
 
 ## ali needs to figure out how many test cases there are
 file_name = 'sim_output.txt'
-test_cases = sys.argv[1]
+test_cases = int(sys.argv[1])
 prev = ''
 with open (file_name, "w") as f:
     t = 0
     temp = 0
+    count = 0
     while 1:
         x=ser.read(3)
         line = x.hex() ## hex string formatted like DATA-DATA-REG-0000
-        result = '%s%s' % line[4], line[0:4]
+        result = line
+        if (len(line) > 0):
+            result = f"{line[4]}{line[0:4]}"
+
         if x != b'' and count == 0:
             t = time.time()
             print(t)
@@ -30,10 +34,7 @@ with open (file_name, "w") as f:
             count+=1
             prev = x
             f.write(result + "\n")
-            print(x, count, " ")
         if count == test_cases:
             temp = time.time()
             print(temp-t)
             break
-        if x == b'' and prev == b'' and count > 0:
-            print("OH NO!!")

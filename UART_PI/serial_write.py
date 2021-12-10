@@ -19,7 +19,9 @@ else:
         file_name = sys.argv[1]
 with open(file_name) as test_fd:
         test_cases = test_fd.readlines()
-        os.system(f'python serial_read.py {len(test_cases)}')
+        print(len(test_cases))
+        #os.system(f'python serial_read.py {len(test_cases)} &')
         for i in range(len(test_cases)):
                 test = bytes.fromhex(f"{test_cases[i][0:4]}00")
-                # ser.write(test)
+                #print(test)
+                ser.write(test)
