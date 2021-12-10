@@ -29,6 +29,7 @@ typedef enum opcode {
 
 void process_instr(FILE * output_fp, char *line, int16_t *reg_file) {
     int16_t instr, opcode, dest_reg, src1_reg, src2_reg, src2_imm;
+	int16_t dest_value;
 
     instr = strtol(line, NULL, 16); // convert char * to int16_t
 
@@ -46,84 +47,84 @@ void process_instr(FILE * output_fp, char *line, int16_t *reg_file) {
     /* Perform computation */
     switch(opcode) {
         case MOV:  {
-            reg_file[dest_reg] = reg_file[src1_reg];
+            dest_value = reg_file[src1_reg];
             break;
         }
 
         case ADD:  {
-            reg_file[dest_reg] = reg_file[src1_reg] + reg_file[src2_reg];
+            dest_value = reg_file[src1_reg] + reg_file[src2_reg];
             break;
         }
 
         case SUB:  {
-            reg_file[dest_reg] = reg_file[src1_reg] - reg_file[src2_reg];
+            dest_value = reg_file[src1_reg] - reg_file[src2_reg];
             break;
         }
 
         case AND:  {
-            reg_file[dest_reg] = reg_file[src1_reg] & reg_file[src2_reg];
+            dest_value = reg_file[src1_reg] & reg_file[src2_reg];
             break;
         }
 
         case OR:   {
-            reg_file[dest_reg] = reg_file[src1_reg] | reg_file[src2_reg];
+            dest_value = reg_file[src1_reg] | reg_file[src2_reg];
             break;
         }
 
         case XOR:  {
-            reg_file[dest_reg] = reg_file[src1_reg] ^ reg_file[src2_reg];
+            dest_value = reg_file[src1_reg] ^ reg_file[src2_reg];
             break;
         }
 
         case SLL:  {
-            reg_file[dest_reg] = reg_file[src1_reg] << (reg_file[src2_reg] & 0xF); // can only shift by 0 ~ 15
+            dest_value = reg_file[src1_reg] << (reg_file[src2_reg] & 0xF); // can only shift by 0 ~ 15
             break;
         }
 
         case SRL:  {
             // cast to unsigned for logical shift
-            reg_file[dest_reg] = (uint16_t)reg_file[src1_reg] >> (reg_file[src2_reg] & 0xF); // can only shift by 0 ~ 15
+            dest_value = (uint16_t)reg_file[src1_reg] >> (reg_file[src2_reg] & 0xF); // can only shift by 0 ~ 15
             break;
         }
 
         case SRA:  {
-            reg_file[dest_reg] = reg_file[src1_reg] >> (reg_file[src2_reg] & 0xF); // can only shift by 0 ~ 15
+            dest_value = reg_file[src1_reg] >> (reg_file[src2_reg] & 0xF); // can only shift by 0 ~ 15
             break;
         }
 
         case ADDI: {
-            reg_file[dest_reg] = reg_file[src1_reg] + src2_imm;
+            dest_value = reg_file[src1_reg] + src2_imm;
             break;
         }
 
         case ANDI: {
-            reg_file[dest_reg] = reg_file[src1_reg] & src2_imm;
+            dest_value = reg_file[src1_reg] & src2_imm;
             break;
         }
 
         case ORI:  {
-            reg_file[dest_reg] = reg_file[src1_reg] | src2_imm;
+            dest_value = reg_file[src1_reg] | src2_imm;
             break;
         }
 
         case XORI: {
-            reg_file[dest_reg] = reg_file[src1_reg] ^ src2_imm;
+            dest_value = reg_file[src1_reg] ^ src2_imm;
             break;
         }
 
         case SLLI: {
-            reg_file[dest_reg] = reg_file[src1_reg] << (src2_imm & 0xF); // can only shift by 0 ~ 15
+            dest_value = reg_file[src1_reg] << (src2_imm & 0xF); // can only shift by 0 ~ 15
             break;
         }
 
         case SRLI: {
             // cast to unsigned for logical shift
-            reg_file[dest_reg] = (uint16_t) reg_file[src1_reg] >> (src2_imm & 0xF); // can only shift by 0 ~ 15
+            dest_value = (uint16_t) reg_file[src1_reg] >> (src2_imm & 0xF); // can only shift by 0 ~ 15
             break;
         }
 
         case SRAI: {
-            reg_file[dest_reg] = reg_file[src1_reg] >> (src2_imm & 0xF); // can only shift by 0 ~ 15
+            dest_value = reg_file[src1_reg] >> (src2_imm & 0xF); // can only shift by 0 ~ 15
             break;
         }
 
@@ -133,12 +134,15 @@ void process_instr(FILE * output_fp, char *line, int16_t *reg_file) {
         }
     }
 
-    reg_file[0] = 0; // r0 = 0 does not change
+	if (dest_reg != 0) reg_file[dest_reg] = dest_value; // r0 = 0 does not change
 
-    /* Write register dump to output file */
-    for (int i = 0; i < 16; i++) {
-        fprintf(output_fp, "%04hx", reg_file[i]);
-    }
+    /* Write information to output file */
+	// Instruction
+	fprintf(output_fp, "%04hx", instr);
+	// Dest register and new value
+	fprintf(output_fp, "%x", dest_reg);
+	if (dest_reg != 0) fprintf(output_fp, "%04hx", dest_value);
+	else fprintf(output_fp, "%04hx", 0);
     fprintf(output_fp, "\n");
 }
 
