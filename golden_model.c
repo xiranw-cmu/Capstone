@@ -7,6 +7,8 @@ TODO:
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include<sys/stat.h>    //for struct stat, stat()
+
 
 typedef enum opcode {
     MOV  = 0x0,
@@ -156,15 +158,19 @@ int main(int argc, char *argv[]) {
     struct timespec start_time, end_time;
     clock_gettime(CLOCK_REALTIME, &start_time); // start time for benchmarking
 
-    /* Open test case file and output file */
+    /* Open test case file and output file */  
     FILE *test_fp = fopen(argv[1], "r");
     if (test_fp == NULL) {
         fprintf(stderr, "Error: Failed to open file %s\n", argv[1]);
         exit(-1);
     }
-    FILE *output_fp = fopen("golden_output.txt", "w");
+    struct stat st;
+    if (stat("outputs", &st) == -1)
+        mkdir("outputs", 0700);
+        
+    FILE *output_fp = fopen("outputs/golden_output.txt", "w");
     if (output_fp == NULL) {
-        fprintf(stderr, "Error: Failed to open file golden_output.txt\n");
+        fprintf(stderr, "Error: Failed to open file outputs/golden_output.txt\n");
         exit(-1);
     }
 

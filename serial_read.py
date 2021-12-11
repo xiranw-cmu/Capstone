@@ -2,6 +2,7 @@
 import time
 import serial
 import sys
+import os
 
 ser = serial.Serial(
         port='/dev/ttyUSB0',
@@ -11,28 +12,25 @@ ser = serial.Serial(
         bytesize=serial.EIGHTBITS,
         timeout=1
 )
+path = 'outputs/'
+if not os.path.exists(path):
+    os.makedirs(path)
 
-## ali needs to figure out how many test cases there are
 file_name = 'sim_output.txt'
 test_cases = int(sys.argv[1])
-prev = ''
-with open (file_name, "w") as f:
+with open (os.path.join(path, file_name), "w") as f:
     t = 0
     temp = 0
     count = 0
     while 1:
         x=ser.read(3)
-        line = x.hex() ## hex string formatted like DATA-DATA-REG-0000
-        result = line
-        if (len(line) > 0):
-            result = f"{line[4]}{line[0:4]}"
-
+        line = x.hex() ## hex string formatted like DATA-DATA-DATA-DATA-REG-0000
+        result = line         
         if x != b'' and count == 0:
             t = time.time()
-            print(t)
         if x != b'':
             count+=1
-            prev = x
+            result = f"{line[4]}{line[0:4]}"
             f.write(result + "\n")
         if count == test_cases:
             temp = time.time()
